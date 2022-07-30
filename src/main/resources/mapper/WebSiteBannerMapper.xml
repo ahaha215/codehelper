@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.WebSiteBannerMapper">
+    <insert id="insertWebSiteBanner">
+        insert into
+        t_web_site_banner(id,link_address,picture_address,user_id)
+        value (#{banner.id},#{banner.linkAddress},#{banner.pictureAddress},#{userId});
+    </insert>
+
+    <delete id="deleteWebSiteBanner">
+        delete from
+        t_web_site_banner
+        where id = #{bannerId}
+    </delete>
+
+    <select id="selectAllWebSiteBanner" resultType="com.lt.codehelper.entity.WebSiteBanner">
+        select
+        *
+        from
+        t_web_site_banner
+    </select>
+
+    <select id="selectWebSiteBanner" resultType="com.lt.codehelper.entity.WebSiteBanner">
+        select
+        *
+        from
+        t_web_site_banner
+        where id = #{webSiteBannerId}
+    </select>
+
+</mapper>

@@ -1,0 +1,87 @@
+#admin-the{
+    margin-left: 100px;!important;
+}
+
+.resource-add-main,
+.from-resource-add{
+    width: 800px;
+    margin: auto;
+}
+
+.from-resource-add ul li{
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.from-resource-add ul li span{
+    margin-top: 10px;
+}
+
+.from-resource-add ul li.add-resource-msg{
+    height: 20px;
+}
+
+.from-resource-add ul li.add-resource-msg span{
+    display: inline-block;
+    height: 20px;
+    margin-top: 0px;
+    color: red;
+}
+
+.from-resource-add ul li input{
+    border: 1px solid #cecece;
+    height: 35px;
+    width: 600px;
+    margin-top: 8px;
+    margin-left: 12px;
+    border-radius: 4px;
+    text-indent: 1em;
+}
+
+.from-resource-add ul li textarea{
+    border: 1px solid #cecece;
+    height: 88px;
+    width: 600px;
+    margin-top: 8px;
+    margin-left: 12px;
+    border-radius: 4px;
+    text-indent: 1em;
+}
+
+.from-resource-add ul .tag input{
+    width: 12px;
+    height: 12px;
+    margin-top: 12px;
+    margin-right: 8px;
+}
+
+.from-resource-add ul .tag .resource-tag-first{
+    margin-right: 130px;
+}
+
+.from-resource-add ul li input:hover,
+.from-resource-add ul li input:focus,
+.from-resource-add ul li textarea:hover{
+    border-color: teal;
+}
+
+.from-resource-add ul li input.last{
+    border: none;
+    margin-right: 19px;
+}
+
+.from-resource-add button{
+    width: 200px;
+    height: 40px;
+    background-color: teal;
+    color: whitesmoke;
+    border-radius: 4px;
+    margin-left: 195px;
+    cursor: pointer;
+}
+
+.resource-add-main .hint-info{
+    display: block;
+    margin-top: 30px;
+}
+

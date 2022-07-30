@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.UserMapper">
+
+    <insert id="insertUser" parameterType="com.lt.codehelper.entity.User">
+        insert into
+        t_user(id,username,password,email,user_type,head_portrait,create_time,update_time)
+        values (#{id},#{username},#{password},#{email},#{userType},#{headPortrait},#{createTime},#{updateTime})
+    </insert>
+
+    <delete id="deleteUserById" parameterType="long">
+        delete from
+        t_user
+        where id = #{id}
+    </delete>
+
+    <update id="updateUserById" parameterType="com.lt.codehelper.entity.User">
+        update t_user
+        set username = #{username},password = #{password},email = #{email},user_type = #{userType},head_portrait = #{headPortrait},update_time = #{updateTime}
+        where id=#{id}
+    </update>
+
+    <update id="updateUserPasswordById">
+        update t_user
+        set password = #{newPassword},update_time = #{updateTime}
+        where id = #{id}
+    </update>
+
+    <select id="selectAllUser" resultType="com.lt.codehelper.entity.User">
+        select * from
+        t_user
+    </select>
+
+    <select id="selectUserById" parameterType="long" resultType="com.lt.codehelper.entity.User">
+        select * from
+        t_user
+        where id = #{id}
+    </select>
+
+    <select id="selectUserByUsername" resultType="com.lt.codehelper.entity.User">
+        select * from
+        t_user
+        where username = #{username}
+    </select>
+
+    <select id="selectUserByEmail" resultType="com.lt.codehelper.entity.User">
+        select * from
+        t_user
+        where email = #{email}
+    </select>
+
+</mapper>

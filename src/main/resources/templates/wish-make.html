@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留下心愿-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 nav footer样式 -->
+    <link rel="stylesheet" href="../static/css/nav-footer.css" th:href="@{/css/nav-footer.css}">
+    <!-- 引入 wish 样式 -->
+    <link rel="stylesheet" href="../static/css/wish.css" th:href="@{/css/wish.css}">
+    <!-- 引入 animate 样式 -->
+    <link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+</head>
+<body>
+
+    <!-- 头部部分 -->
+    <nav class="menu">
+        <div class="container clearfix">
+            <div class="logo left"><a href="/welcome">CodeHelper</a></div>
+            <ul class="left clearfix">
+                <li><a href="/index">首页</a></li>
+                <li><a href="/blog">博客</a></li>
+                <li><a href="/resource">资源</a></li>
+                <li><a href="/wish">世界</a></li>
+                <li><a href="/aboutUserResource">个人</a></li>
+                <li><a href="/aboutWebMaster">关于站长</a></li>
+            </ul>
+            <div class="login">
+                <a th:if="${loginUser == null}" class="login-a" href="/login">登 录</a>
+                <div class="login-user-msg" th:if="${loginUser != null}">
+                    <div class="msg-main clearfix">
+                        <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${loginUser.headPortrait}}" alt="">
+                        <span class="left" th:text="${loginUser.username}">李先生</span>
+                    </div>
+                    <div class="logout-a">
+                        <a href="/logout.do">退 出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--心愿池主体部分-->
+    <div class="wish-make-box">
+        <div class="wish-top">
+            <div class="clearfix">
+                <h2 class="left"><a href="/wish">心 愿 树</a></h2>
+                <h2 class="left findPartner"><a href="/partner">找 伙 伴</a></h2>
+            </div>
+            <span class="des">
+                留下你的心愿，等待一位有缘人来帮助你吧！
+            </span>
+        </div>
+
+        <form action="/makeWish.do" class="clearfix" method="post">
+            <span class="msg" th:text="${msg}"></span>
+            <div class="wish-container clearfix">
+                <span class="left">* 我的心愿 ：</span>
+                <input class="right" type="text" name="content" placeholder="请简要概括你的需求！">
+            </div>
+            <div class="wish-types">
+                <span>* 心愿类型 ：</span>
+                <ul class="clearfix">
+                    <li class="left" th:each="type : ${allType}">
+                        <input type="checkbox" name="wishTypeNames" th:value="${type.typeName}">
+                        <span th:text="${type.typeName}">java</span>
+                    </li>
+                </ul>
+            </div>
+            <button class="make-wish-btn right">许 愿</button>
+        </form>
+        <span class="hint-info">注：留下心愿之后，需要经过审核，待审核通过后，才可正式发布！</span>
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+
+    <!-- 引入 public  js -->
+    <script type="text/javascript" src="../static/js/public.js" th:src="@{/js/public.js}"></script>
+    <!-- 页面滚动效果 -->
+    <script src="../static/js/jquery-3.6.0.min.js" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script src="../static/js/jquery.aniview.js" th:src="@{/js/jquery.aniview.js}"></script>
+    <script>
+        // 滚动 aniview
+        var options = {
+            animateClass: 'animate__animated',
+            animateThreshold: 100,
+            scrollPollInterval: 20
+        };
+        $('.aniview').AniView(options);
+
+    </script>
+</body>
+
+</html>

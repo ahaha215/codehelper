@@ -1,0 +1,38 @@
+.admin-resource-audit{
+    width: 800px;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.admin-resource-audit ul li{
+    margin-bottom: 25px;
+}
+
+.admin-resource-audit ul li .content{
+    margin-left: 50px;
+}
+
+.admin-resource-audit ul li img{
+    width: 100px;
+    height: 100px;
+}
+
+.admin-resource-audit ul li span{
+    line-height: 30px;
+}
+
+.admin-resource-audit a{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    background-color: teal;
+    color: whitesmoke;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+}
+
+.admin-resource-audit .yes{
+    margin-right: 12px;
+}

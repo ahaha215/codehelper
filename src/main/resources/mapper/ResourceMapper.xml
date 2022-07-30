@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.ResourceMapper">
+    <insert id="insertResource">
+        insert into
+        t_resource(id,resource_name,description,link_address,detail,icon,audit,create_time,update_time,view_sum,user_id)
+        values (#{resource.id},#{resource.resourceName},#{resource.description},#{resource.linkAddress},#{resource.detail},#{resource.icon},#{resource.audit},#{resource.createTime},#{resource.updateTime},#{resource.viewSum},#{userId})
+    </insert>
+
+    <select id="selectAllResource" resultType="com.lt.codehelper.entity.Resource">
+        select
+        *
+        from
+        t_resource
+    </select>
+
+    <select id="selectResourceByResourceNameLike" resultType="com.lt.codehelper.entity.Resource">
+        select
+        *
+        from
+        t_resource
+        where resource_name like #{resourceNameLike}
+    </select>
+
+    <select id="selectAllResourceByUserId" resultType="com.lt.codehelper.entity.Resource">
+        select
+        *
+        from
+        t_resource
+        where user_id = #{loginUserId}
+    </select>
+
+    <select id="selectAllPassAuditResource" resultType="com.lt.codehelper.entity.Resource">
+        select
+        *
+        from
+        t_resource
+        where audit = "通过"
+    </select>
+
+    <select id="selectAllPendingAuditResource" resultType="com.lt.codehelper.entity.Resource">
+        select
+        *
+        from
+        t_resource
+        where audit = "待审核"
+    </select>
+
+    <select id="selectUserIdByResourceId" resultType="long">
+        select
+        user_id
+        from
+        t_resource
+        where id = #{id}
+    </select>
+
+    <select id="selectResourceById" resultType="com.lt.codehelper.entity.Resource">
+        select
+        *
+        from
+        t_resource
+        where id = #{id}
+    </select>
+
+    <select id="selectNewResource" resultType="com.lt.codehelper.entity.Resource">
+        select
+        *
+        from
+        t_resource
+        where audit = "通过"
+        order by  create_time desc LIMIT #{size}
+    </select>
+
+    <update id="updateResourceAudit">
+        update
+        t_resource
+        set audit = #{audit}
+        where id = #{resourceId}
+    </update>
+
+    <delete id="deleteResource">
+        delete from
+        t_resource
+        where id = #{resourceId}
+    </delete>
+
+    <update id="updateResourceSum">
+        update
+        t_resource
+        set view_sum = #{viewSum}
+        where id = #{resourceId}
+    </update>
+
+</mapper>

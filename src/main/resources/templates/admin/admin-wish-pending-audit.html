@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心愿待审核-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 admin nav footer 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-nav-footer.css" th:href="@{/css/admin-nav-footer.css}">
+    <!-- 引入 admin-list 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-list.css" th:href="@{/css/admin-list.css}">
+</head>
+
+<body>
+
+    <!-- 顶部部分 -->
+    <nav class="nav clearfix">
+        <ul class="right clearfix">
+            <li><a href="/logout.do">Log Out</a></li>
+        </ul>
+    </nav>
+
+    <div class="main clearfix">
+        <!-- 左边导航栏部分 -->
+        <div class="menu left">
+            <div class="log">
+                <h1>
+                    <a href="/adminIndex">CodeHelper</a>
+                </h1>
+            </div>
+            <ul>
+                <li><a href="/adminWebSiteBanner">Web Management</a></li>
+                <li><a href="/adminUser">User Management</a></li>
+                <li><a href="/adminType">Type Management</a></li>
+                <li><a href="/adminBlog">Blog Management</a></li>
+                <li><a href="/adminResource">Reso Management</a></li>
+                <li class="admin-active"><a href="/adminWish">Wish Management</a></li>
+                <li><a href="/adminPartner">Part Management</a></li>
+            </ul>
+        </div>
+        <!-- 中间主体部分 -->
+        <div class="admin-container left">
+            <input type="hidden" class="msg" th:value="${msg}">
+            <div class="box clearfix">
+                <a href="/adminPendingAuditWish" class="right box-active">待审核</a>
+                <a href="/adminWish" class="right">列表</a>
+            </div>
+
+            <div class="items" style="width: 800px">
+                <table>
+                    <tr class="title">
+                        <td>编号</td>
+                        <td>状态</td>
+                        <td>用户</td>
+                        <td>操作</td>
+                    </tr>
+                    <tr th:each="wish : ${pageWish.list}">
+                        <td th:text="${wishStat.count}">1</td>
+                        <td th:text="${wish.audit}">审核通过</td>
+                        <td th:text="${wish.user.username}">Admin</td>
+                        <td>
+                            <a class="editor" th:href="@{/auditWishDetail.do(wishId=${wish.id})}"><img src="../../static/images/alter.png" th:src="@{/images/alter.png}" alt="编辑"></a>
+                            <a class="del" th:href="@{/removeWish.do(wishId=${wish.id})}"><img src="../../static/images/delete.png" th:src="@{/images/delete.png}" alt="删除"></a>
+                        </td>
+                       </tr>
+                </table>
+
+                <div class="change clearfix">
+                    <a th:href="@{/wishList.do(pageNum=${pageWish.prePage})}" class="left pre" th:class="${pageWish.hasPreviousPage}?'left pre ':'left pre disabled'">上一页</a>
+                    <a th:href="@{/wishList.do(pageNum=${pageWish.nextPage})}" class="left nex" th:class="${pageWish.hasNextPage}?'left nex':'left nex disabled'">下一页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2021 - 2022 LiTing Designed by LiTing
+        </div>
+    </footer>
+    <script>
+        var msg = document.querySelector(".msg").value;
+        if ("" != msg){
+            // 如果提示信息不为空，则弹出提示信息
+            alert(msg);
+        }
+    </script>
+</body>
+
+</html>

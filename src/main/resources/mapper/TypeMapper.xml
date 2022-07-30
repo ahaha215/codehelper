@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.TypeMapper">
+
+    <insert id="insertType" parameterType="com.lt.codehelper.entity.Type">
+        insert into
+        t_type(id,type_name)
+        values (#{id},#{typeName});
+    </insert>
+
+    <delete id="deleteTypeById" parameterType="long">
+        delete from
+        t_type
+        where id = #{id}
+    </delete>
+
+    <update id="updateType" parameterType="com.lt.codehelper.entity.Type">
+        update
+        t_type
+        set type_name = #{typeName}
+        where id = #{id}
+    </update>
+
+    <select id="selectAllType" resultType="com.lt.codehelper.entity.Type">
+        select *
+        from
+        t_type
+    </select>
+
+    <select id="selectTypeById" resultType="com.lt.codehelper.entity.Type">
+        select *
+        from
+        t_type
+        where id = #{id}
+    </select>
+
+    <select id="selectTypeByName" resultType="com.lt.codehelper.entity.Type">
+        select *
+        from t_type
+        where type_name = #{typeName}
+    </select>
+
+</mapper>

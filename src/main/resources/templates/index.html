@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 nav footer 样式 -->
+    <link rel="stylesheet" href="../static/css/nav-footer.css" th:href="@{/css/nav-footer.css}">
+    <!-- 引入 index 样式 -->
+    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
+    <!-- 引入 animate 样式 -->
+    <link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+    <!-- 引入 swiper 样式 -->
+    <link rel="stylesheet" href="../static/css/swiper.css" th:href="@{/css/swiper.css}">
+</head>
+
+<body>
+
+    <!-- 头部部分 -->
+    <nav class="menu">
+        <div class="container clearfix">
+            <div class="logo left"><a href="/welcome">CodeHelper</a></div>
+            <ul class="left clearfix">
+                <li><a class="active" href="/index">首页</a></li>
+                <li><a href="/blog">博客</a></li>
+                <li><a href="/resource">资源</a></li>
+                <li><a href="/wish">世界</a></li>
+                <li><a href="/aboutUserResource">个人</a></li>
+                <li><a href="/aboutWebMaster">关于站长</a></li>
+            </ul>
+            <div class="login">
+                <a th:if="${loginUser == null}" class="login-a" href="/login">登 录</a>
+                <div class="login-user-msg" th:if="${loginUser != null}">
+                    <div class="msg-main clearfix">
+                        <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${loginUser.headPortrait}}" alt="">
+                        <span class="left" th:text="${loginUser.username}">李先生</span>
+                    </div>
+                    <div class="logout-a">
+                        <a href="/logout.do">退 出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 中间主体部分 -->
+    <div class="index-main">
+        <!-- 轮播图 -->
+        <div class="wrapper">
+            <div class="swiper-container swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" th:each="banner : ${allWebSiteBanner}">
+                        <a href="" th:href="@{${banner.linkAddress}}"><img src="../static/images/banner1.jpg" th:src="@{${banner.pictureAddress}}" alt=""></a>
+                    </div>
+                </div>
+                <!-- 追记 -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <!-- 好的推荐 -->
+        <div class="good-recommendation">
+            <a href="" th:href="@{${webSiteGoodRecommend.linkAddress}}" th:each="webSiteGoodRecommend : ${allWebSiteGoodRecommend}">
+                <img src="../static/images/good-rec1.jpg" th:src="@{${webSiteGoodRecommend.pictureAddress}}"></img>
+            </a>
+        </div>
+        <!-- 主页主体 -->
+        <div class="index-box clearfix">
+            <!-- 左边部分 -->
+            <div class="index-box-left left">
+                <!-- 博客列表 -->
+                <div class="index-blog">
+                    <h2>技术博客</h2>
+                    <div class="blog-list">
+                        <a href="" th:href="@{/blogDetail.do(blogId=${newBlog.blog.id})}" class="blog-item"th:each="newBlog : ${newBlogList}">
+                            <h4 th:text="${newBlog.blog.title}">深入理解Java虚拟机</h4>
+                                <div class="blog-content clearfix">
+                                    <div class="blog-img left">
+                                        <img src="../static/storehouse/blog/first_img/950878240434552832_1018-3914x2935.jpg" th:src="@{${newBlog.blog.firstPicture}}" alt="">
+                                    </div>
+                                    <div class="blog-right left">
+                                        <div class="blog-description" th:text="${newBlog.blog.description}">
+                                            正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已…
+                                        </div>
+                                        <div class="blog-message clearfix">
+                                            <div class="head-portrait left">
+                                                <img src="../static/images/1005-800x450.jpg" th:src="@{${newBlog.headPortrait}}" alt="用户头像">
+                                            </div>
+                                            <span class="blog-autor left" th:text="${newBlog.author}">
+                                                李停
+                                            </span>
+                                            <span class="blog-published-time left" th:text="${newBlog.updateTimeStr}">
+                                                2022-01-18
+                                            </span>
+                                            <span class="blog-watched-sum left" th:text="${newBlog.blog.viewSum}">
+                                                2000
+                                            </span>
+                                            <span class="blog-tag right" th:each="blogType : ${newBlog.blog.blogTypes}">
+                                                [[${blogType}]]
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </a>
+                    </div>
+                </div>
+                <!--资源列表-->
+                <div class="index-resource">
+                    <h2>编程资源</h2>
+                    <div class="resource-list">
+                        <a th:href="@{/resourceDetail.do(resourceId=${resourceInfo.resource.id})}" class="resource-item left" th:each="resourceInfo : ${newResourceList}">
+                            <div class="resource-top clearfix">
+                                <div class="resource-img left">
+                                    <img src="../static/images/1005-800x450.jpg" alt="" th:src="@{${resourceInfo.resource.icon}}">
+                                </div>
+                                <div class="resource-content right">
+                                    <h4 class="resource-title" th:text="${resourceInfo.resource.resourceName}">Java Idea</h4>
+                                    <div class="resource-description" th:text="${resourceInfo.resource.description}">
+                                        这是一个非常好的Java编辑器，你一定会爱上它的！
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="resource-additional clearfix">
+                                <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${resourceInfo.resource.user.headPortrait}}" alt="">
+                                <span class="left username" th:text="${resourceInfo.resource.user.username}">Admin</span>
+                                <span class="create-date left" th:text="${resourceInfo.createTimStr}">2022-2-12 12:00</span>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="resource-tag right" th:each="typeName : ${resourceInfo.resource.resourceTypes}">
+                                    [[${typeName}]]
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 右边部分 -->
+            <div class="index-box-right right">
+                    <!-- 站长介绍 -->
+                    <div class="index-about-me">
+                        <div class="title relative">
+                            <span class="left-line"></span>
+                            <h4>关于站长</h4>
+                            <span class="right-line"></span>
+                        </div>
+                        <div class="index-about-me-background-img relative">
+                            <img class="bg-img" src="../static/images/nature.jpg" th:src="@{/images/nature.jpg}" alt="">
+                            <div class="index-header-img">
+                                <img src="../static/images/touxiang.jpg" th:src="@{/images/touxiang.jpg}" alt="">
+                            </div>
+                        </div>
+                        <p class="index-about-text">
+                            李先生，一个独立开发者，折腾在 0 和 1 世界的大叔；希望结识可以共同成长的小伙伴！
+                        </p>
+                    </div>
+                    <!-- 天气 -->
+                    <div class="weather">
+                        <div class="title relative">
+                            <span class="left-line"></span>
+                            <h4>今日天气</h4>
+                            <span class="right-line"></span>
+                        </div>
+                        <div id="he-plugin-standard"></div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+
+    <!-- 引入 swiper  js -->
+    <script type="text/javascript" src="../static/js/swiper.js" th:src="@{/js/swiper.js}"></script>
+    <!-- 引入 public  js -->
+    <script type="text/javascript" src="../static/js/public.js" th:src="@{/js/public.js}"></script>
+    <!-- 引入 index  js -->
+    <script type="text/javascript" src="../static/js/index.js" th:src="@{/js/index.js}"></script>
+    <!-- 页面滚动效果 -->
+    <script src="../static/js/jquery-3.6.0.min.js" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script src="../static/js/jquery.aniview.js" th:src="@{/js/jquery.aniview.js}"></script>
+    <!-- 天气 -->
+    <script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
+    <script type="text/javascript">
+        // 滚到指定位置固定
+        window.onscroll=function(){
+            var obj = document.getElementsByClassName("index-box-right")[0];
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(scrollTop)
+            if(scrollTop < 965){
+                obj.style.position = 'static';
+                obj.style.marginLeft = "0";
+                obj.style.bottom = "0";
+            }else{
+                obj.style.position = 'fixed';
+                obj.style.marginLeft = "887px";
+                obj.style.bottom = "70px";
+            }
+        }
+
+        // 滚动 aniview
+        var options = {
+            animateClass: 'animate__animated',
+            animateThreshold: 100,
+            scrollPollInterval: 20
+        };
+        $('.aniview').AniView(options);
+
+        // 天气
+        WIDGET = {
+            "CONFIG": {
+                "layout": "2",
+                "width": "250",
+                "height": "350",
+                "background": "1",
+                "dataColor": "FFFFFF",
+                "borderRadius": "4",
+                "key": "a75d52a1fd8c43348d6668b6b5da6e8d"
+            }
+        }
+    </script>
+</body>
+
+</html>

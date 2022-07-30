@@ -1,0 +1,401 @@
+/*用户心愿页面样式开始*/
+.wish-box{
+    width: 1137px;
+    margin: auto;
+}
+.wish-box h2{
+    font-size: 20px;
+    font-weight: bolder;
+    color: #1abc9c;
+    cursor: pointer;
+}
+
+.wish-box h2:hover{
+    color: #1abc9c;
+}
+
+.wish-box .findPartner{
+    margin-left: 25px;
+    color: black;
+}
+
+.wish-box .wish-top .des{
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 25px;
+}
+
+.wish-box .make-wish,
+.make-wish-btn,
+.wish-helper-btn{
+    display: block;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: whitesmoke;
+    background-color: #1abc9c;
+    margin-top: 25px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.wish-top{
+    margin-bottom: 50px;
+}
+
+.wish-box .wish-list{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.wish-box .wish-list .wish-item{
+    display: block;
+    width: 260px;
+    height: 200px;
+    margin-right: 178px;
+}
+
+.wish-box .wish-list .wish-item:nth-child(3n){
+    margin-right: 0;
+}
+
+.wish-box .wish-item .top{
+    line-height: 20px;
+    height: 82px;
+    overflow: hidden;
+}
+
+.wish-box .wish-item img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.wish-item .container{
+    margin-left: 25px;
+    width: 175px;
+}
+
+.wish-item .container .title{
+    display: block;
+    font-size: 20px;
+}
+
+.wish-item:hover .title{
+    font-weight: bolder;
+}
+
+.wish-item .container .text{
+    display: block;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.wish-item .bottom{
+    font-size: 13px;
+    color: #454545;
+}
+
+.wish-item .wish-types{
+    margin-top: 20px;
+}
+
+.wish-item .wish-types span{
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-right: 6px;
+}
+
+.turn-pages .pre-btn img{
+    width: 15px;
+    height: 15px;
+    margin-right: 50px;
+}
+
+.turn-pages .nex-btn img{
+    width: 15px;
+    height: 15px;
+}
+
+.turn-pages .pages{
+    margin-right: 50px;
+}
+/*用户心愿页面样式结束*/
+
+
+/*用户心愿添加开始*/
+.wish-make-box{
+    width: 1137px;
+    margin: 1px auto auto;
+}
+
+.wish-make-box h2{
+    font-size: 20px;
+    font-weight: bolder;
+    color: #1abc9c;
+    cursor: pointer;
+}
+
+.wish-make-box h2:hover{
+    color: #1abc9c;
+}
+
+.wish-make-box .findPartner{
+    margin-left: 25px;
+    color: black;
+}
+
+.wish-make-box .wish-top .des{
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 25px;
+}
+
+.wish-make-box form{
+    margin-top: 80px;
+    width: 1000px;
+}
+
+.wish-make-box form .wish-container span{
+    height: 40px;
+    line-height: 40px;
+}
+
+.wish-make-box form .wish-container input,
+.admin-wish-add form .wish-content{
+    border: 1px solid #cecece;
+    height: 35px;
+    width: 600px;
+    border-radius: 4px;
+    text-indent: 1em;
+}
+
+.wish-make-box form .wish-container input:hover,
+.wish-make-box form .wish-container input:focus,
+.admin-wish-add form .wish-content:hover{
+    border-color: teal;
+}
+
+.wish-make-box .wish-types{
+    margin-top: 40px;
+}
+
+.wish-make-box .wish-types ul{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.wish-make-box .wish-types ul li{
+    margin-top: 12px;
+    margin-right: 20px;
+}
+
+.hint-info{
+    display: block;
+    margin-top: 50px;
+}
+
+.msg{
+    color: red;
+    display: block;
+    height: 20px;
+    margin-left: 2px;
+}
+/*用户心愿添加结束*/
+
+/*心愿详情开始*/
+.wish-detail{
+    width: 800px;
+    margin: auto;
+}
+
+.wish-detail .head-portrait,
+.wish-detail .head-portrait img{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.wish-detail .description{
+    font-size: 14px;
+    line-height: 30px;
+    margin-top: 50px;
+    color: #000000D9;
+    text-align: center;
+}
+
+.wish-detail .types{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.wish-detail .types span{
+    display: inline-block;
+    line-height: 18px;
+    border: 1px solid #000000D9;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    color: #000000D9;
+    font-size: 12px;
+}
+
+.wish-detail .author{
+    margin-top: 80px;
+}
+
+.wish-detail .link a{
+    color: #00a8c6;
+}
+
+.wish-detail .create-date{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.wish-detail .create-date .date{
+    font-size: 14px;
+}
+
+.wish-helper-box{
+    margin-top: 100px;
+}
+
+.wish-helper-box form span{
+    display: block;
+    margin-bottom: 12px;
+}
+
+.wish-helper-box input{
+    border: 1px solid #c0c0c0;
+    width: 796px;
+    height: 30px;
+    margin-bottom: 20px;
+    text-indent: 1em;
+    border-radius: 4px;
+}
+
+.wish-helper-box textarea{
+    width: 760px;
+    height: 100px;
+    border: 1px rgb(204, 204, 204) solid;
+    padding: 20px;
+}
+
+.wish-helper-box .wish-helper-list{
+    margin-top: 80px;
+}
+
+.wish-helper-list h4{
+    font-weight: bolder;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+.wish-helper-list .wish-helper-item{
+    width: 820px;
+    margin-bottom: 40px;
+    padding-top: 12px;
+}
+
+.wish-helper-list h6{
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.wish-helper-list .des{
+    display: block;
+    margin-top: 12px;
+    line-height: 24px;
+    letter-spacing: 2px;
+    font-size: 15px;
+    text-indent: 2em;
+}
+
+.wish-helper-list .author-info{
+    margin-top: 12px;
+}
+
+.wish-helper-list .author-info img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.wish-helper-list .author-info span{
+    margin-top: 8px;
+    margin-left: 12px;
+    font-size: 14px;
+    color: #6a6a6a;
+}
+
+.wish-helper-list .author-info span.time{
+    margin-top: 9px;
+    font-size: 10px;
+}
+
+.del-helper{
+    font-size: 12px;
+    margin-left: 42px;
+}
+
+.del-helper:hover{
+    color: red;
+}
+/*心愿详情结束*/
+
+
+/*-----------管理端-------------*/
+
+
+/*管理员心愿审核开始*/
+.wish-audit{
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 700px;
+}
+
+.wish-audit ul li{
+    margin-bottom: 50px;
+}
+
+.wish-audit ul li .content{
+    margin-left: 50px;
+}
+
+.wish-audit ul li .content span{
+    margin-right: 20px;
+}
+
+.wish-audit a{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    background-color: teal;
+    color: whitesmoke;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+}
+
+.wish-audit .yes{
+    margin-right: 12px;
+}
+/*管理员心愿审核结束*/
+
+
+
+
+
+
+
+
+
+
+

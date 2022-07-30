@@ -1,0 +1,35 @@
+spring:
+  # Mysql 配置
+  datasource:
+    url: jdbc:mysql://43.138.21.5:3306/codehelper
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      # 设置单个文件上传的大小的最大值
+      max-file-size: 10MB
+      # 设置单次请求文件的总大小的最大值
+      max-request-size: 100MB
+
+# Mybatis 配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 服务配置
+server:
+  servlet:
+    session:
+      # 设定Session的追踪模式(cookie, url, ssl)
+      tracking-modes: cookie
+      # session 会话失效时间
+      timeout: 3600
+  # 服务启动端口
+  port: 8080
+
+
+
+

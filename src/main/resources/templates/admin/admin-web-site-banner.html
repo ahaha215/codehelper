@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图管理-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 admin nav footer 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-nav-footer.css" th:href="@{/css/admin-nav-footer.css}">
+    <!-- 引入 admin-web-site 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-web-site.css" th:href="@{/css/admin-web-site.css}">
+</head>
+
+<body>
+
+    <!-- 顶部部分 -->
+    <nav class="nav clearfix">
+        <ul class="right clearfix">
+            <li><a href="/logout.do">Log Out</a></li>
+        </ul>
+    </nav>
+
+    <div class="main clearfix">
+        <!-- 左边导航栏部分 -->
+        <div class="menu left">
+            <div class="log">
+                <h1>
+                    <a href="/adminIndex">CodeHelper</a>
+                </h1>
+            </div>
+            <ul>
+                <li class="admin-active"><a href="/adminWebSiteBanner">Web Management</a></li>
+                <li><a href="/adminUser">User Management</a></li>
+                <li><a href="/adminType">Type Management</a></li>
+                <li><a href="/adminBlog">Blog Management</a></li>
+                <li><a href="/adminResource">Reso Management</a></li>
+                <li><a href="/adminWish">Wish Management</a></li>
+                <li><a href="/adminPartner">Part Management</a></li>
+            </ul>
+        </div>
+        <!-- 中间主体部分 -->
+        <div class="admin-web-site-container left">
+            <input type="hidden" class="msg" th:value="${msg}">
+            <div class="box clearfix">
+                <a href="/adminWebSiteGoodRecommend" class="right">站长推荐</a>
+                <a href="/adminWebSiteBanner" class="right box-active">轮播图</a>
+            </div>
+
+            <div class="web-box">
+                <form action="/addWebSiteBanner.do" method="post" enctype="multipart/form-data">
+                    <span>轮播图片：</span>
+                    <input type="file" name="bannerPicture">
+                    <span>链接资源地址：</span>
+                    <input class="address" type="text" placeholder="请输入链接地址..." name="linkAddress">
+                    <button>添 加</button>
+                </form>
+
+                <div class="list">
+                    <div class="item clearfix" th:each="banner : ${allWebSiteBanners}">
+                        <img src="../../static/images/banner1.jpg" alt="" class="left" th:src="@{${banner.pictureAddress}}">
+                        <div class="content left">
+                            <span>轮播链接地址：</span>
+                            <span class="link" th:text="${banner.linkAddress}">/blogDetail.do(blogId=${blogInfo.blog.id})</span>
+                            <div class="bottom">
+                                <a class="right btn" th:href="@{/removeWebSiteBanner.do(webSiteBannerId=${banner.id})}">删 除</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+    <script>
+        var msg = document.querySelector(".msg").value;
+        if ("" != msg){
+            // 如果提示信息不为空，则弹出提示信息
+            alert(msg);
+        }
+    </script>
+</body>
+
+</html>

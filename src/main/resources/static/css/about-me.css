@@ -1,0 +1,161 @@
+/*关于用户页面样式表*/
+.about-me-container{
+    width: 1137px;
+    margin: auto;
+}
+
+.about-me-container .top{
+    width: 1137px;
+    height: 100px;
+    background: url("../images/about-user-bg.jpg") no-repeat;
+    background-size: 100% 100%;
+    padding-top: 100px;
+}
+
+.about-me-container .top .box{
+    width: 200px;
+    height: 80px;
+    margin-left: 50px;
+}
+
+.about-me-container .box img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.about-me-container .box span.user-name-text{
+    color: whitesmoke;
+    margin-top: 8px;
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.about-me-container .box .register-time-text{
+    display: block;
+    width: 200px;
+    color: whitesmoke;
+    margin-left: 92px;
+    margin-top: -21px;
+    font-size: 13px;
+}
+
+.menu-box{
+    margin-top: 30px;
+}
+
+.menu-box li{
+    margin-right: 20px;
+    letter-spacing: 4px;
+    padding-bottom: 12px;
+    font-size: 15px;
+}
+
+.menu-box li:hover{
+    border-bottom: 2px #00a8c6 solid;
+    font-weight: bolder;
+}
+
+.about-me-active{
+    border-bottom: 2px #00a8c6 solid;
+    font-weight: bolder;
+}
+
+.about-me-container .content{
+    margin-top: 40px;
+    min-height: 150px;
+}
+
+.about-me-container .content form{
+    width: 600px;
+}
+
+.about-me-container .content span{
+    margin-top: 10px;
+}
+
+.about-me-container .content input{
+    width: 500px;
+    height: 30px;
+    border: 1px #c0c0c0 solid;
+    border-radius: 4px;
+    text-indent: 1em;
+}
+
+.about-me-container .content .li{
+    margin-bottom: 20px;
+}
+
+.about-me-container .content .file{
+    border: none;
+    margin-right: 19px;
+}
+
+button{
+    width: 100px;
+    height: 40px;
+    background-color: #1abc9c;
+    text-align: center;
+    border-radius: 4px;
+    color: whitesmoke;
+}
+
+/*我推荐的资源列表*/
+.about-me-list .about-me-item{
+    display: block;
+    width: 100%;
+    height: 140px;
+}
+
+.about-me-list .about-me-item img{
+    width: 150px;
+    height: 110px;
+}
+
+.about-me-item .main-content{
+    margin-top: 20px;
+}
+
+.about-me-item .main-content h2{
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.about-me-item .item-bottom a{
+    display: inline-block;
+    width: 40px;
+    margin-top: 18px;
+}
+
+.about-me-item .item-bottom a:hover{
+    color: red;
+}
+
+.about-me-item .item-bottom .look:hover{
+    color: #00a8c6;
+}
+
+.about-me-list .item-the{
+    height: 80px!important;
+}
+
+.turn-pages .pre-btn,
+.turn-pages .pre-btn img{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 50px;
+}
+
+.turn-pages .nex-btn,
+.turn-pages .nex-btn img{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+
+.turn-pages .pages{
+    margin-right: 50px;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.WishToTypeMapper">
+    <insert id="insertWishToType">
+        insert into
+        t_wish_to_type(wish_id,type_id)
+        values (#{wishId},#{typeId})
+    </insert>
+
+    <select id="selectAllTypeIdByWishId" resultType="long">
+        select
+        type_id
+        from
+        t_wish_to_type
+        where wish_id = #{wishId}
+    </select>
+</mapper>

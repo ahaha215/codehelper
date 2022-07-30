@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心愿详情-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 nav footer样式 -->
+    <link rel="stylesheet" href="../static/css/nav-footer.css" th:href="@{/css/nav-footer.css}">
+    <!-- 引入 wish 样式 -->
+    <link rel="stylesheet" href="../static/css/wish.css" th:href="@{/css/wish.css}">
+    <!-- 引入 animate 样式 -->
+    <link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+</head>
+<body>
+
+    <!-- 头部部分 -->
+    <nav class="menu">
+        <div class="container clearfix">
+            <div class="logo left"><a href="/welcome">CodeHelper</a></div>
+            <ul class="left clearfix">
+                <li><a href="/index">首页</a></li>
+                <li><a href="/blog">博客</a></li>
+                <li><a href="/resource">资源</a></li>
+                <li><a href="/wish">世界</a></li>
+                <li><a href="/aboutUserResource">个人</a></li>
+                <li><a href="/aboutWebMaster">关于站长</a></li>
+            </ul>
+            <div class="login">
+                <a th:if="${loginUser == null}" class="login-a" href="/login">登 录</a>
+                <div class="login-user-msg" th:if="${loginUser != null}">
+                    <div class="msg-main clearfix">
+                        <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${loginUser.headPortrait}}" alt="">
+                        <span class="left" th:text="${loginUser.username}">李先生</span>
+                    </div>
+                    <div class="logout-a">
+                        <a href="/logout.do">退 出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 中间主体部分 -->
+    <div class="wish-detail">
+        <div class="head-portrait">
+            <img src="../static/images/1005-800x450.jpg" th:src="@{${wishInfo.user.headPortrait}}" alt="">
+        </div>
+        <div class="description" th:text="${wishInfo.content}">
+           求大家给我一份Java的学习资料！
+        </div>
+        <div class="types">
+            <span th:each="type : ${wishInfo.wishTypes}">
+                [[${type.typeName}]]
+            </span>
+        </div>
+        <div class="author">
+            <span>许愿人 ：</span>
+            <span th:text="${wishInfo.user.username}">Admin</span>
+        </div>
+        <div class="create-date">
+            <span>时间 ：</span>
+            <span class="date" th:text="${formatTimeStr}">2022-12-12 10:12</span>
+        </div>
+
+        <div class="wish-helper-box">
+            <form action="/addWishHelper.do" class="clearfix">
+                <input type="hidden" name="wishId" th:value="${wishInfo.id}">
+                <span>名称：</span>
+                <input type="text" name="name">
+                <span>内容：</span>
+                <textarea name="content" cols="30" rows="10" placeholder="快来帮助他吧..."></textarea>
+                <button class="right wish-helper-btn">帮 他 完 成</button>
+            </form>
+            <div class="wish-helper-list">
+                <h4>帮 助 列 表</h4>
+                <div class="wish-helper-item clearfix" th:each="wishHelperMap : ${wishHelperList}">
+                    <h6>推荐：<span th:text="${wishHelperMap.wishHelper.name}">Alibaba开发规范手册</span></h6>
+                    <span class="des" th:text="${wishHelperMap.wishHelper.content}">
+                        这是一个很好很好的Java开发规范手册！
+                        这是一个很好很好的Java开发规范手册！
+                        这是一个很好很好的Java开发规范手册！
+                        这是一个很好很好的Java开发规范手册！
+                        这是一个很好很好的Java开发规范手册！
+                    </span>
+                    <div class="author-info clearfix">
+                        <img src="../static/images/1005-800x450.jpg" alt="" class="left" th:src="@{${wishHelperMap.wishHelper.user.headPortrait}}">
+                        <span class="left username" th:text="${wishHelperMap.wishHelper.user.username}">Admin</span>
+                        <span class="left time" th:text="${wishHelperMap.createTimeStr}">2022/2/2 23:23</span>
+                    </div>
+                    <a th:href="@{/delWishHelper.do(wishHelperId=${wishHelperMap.wishHelper.id},wishId=${wishInfo.id})}" class="del-helper" th:if="${loginUser.id==wishHelperMap.wishHelper.user.id || loginUser.userType=='管理员'}">删除</a>
+                </div>
+                <div class="turn-pages clearfix">
+                    <a th:href="@{/wishDetail.do(pageNum=${pageWishHelper.nextPage})}" class="right nex-btn" th:class="${pageWishHelper.hasNextPage}?'right nex-btn':'right nex-btn disabled'">
+                        <img src="../static/images/turn-pages-nex.png" th:src="@{/images/turn-pages-nex.png}" alt="">
+                    </a>
+                    <a th:href="@{/wishDetail.do(pageNum=${pageWishHelper.prePage})}" class="right pre-btn" th:class="${pageWishHelper.hasPreviousPage}?'right pre-btn':'right pre-btn disabled'">
+                        <img src="../static/images/turn-pages-pre.png" th:src="@{/images/turn-pages-pre.png}" alt="">
+                    </a>
+                    <span class="right pages">共计：<span class="total-sum" th:text="${pageWishHelper.pages}">10</span> 页，当前第：<span class="current-sum" th:text="${pageWishHelper.pageNum}">10</span> 页</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+
+    <!-- 引入 public  js -->
+    <script type="text/javascript" src="../static/js/public.js" th:src="@{/js/public.js}"></script>
+    <!-- 页面滚动效果 -->
+    <script src="../static/js/jquery-3.6.0.min.js" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script src="../static/js/jquery.aniview.js" th:src="@{/js/jquery.aniview.js}"></script>
+    <script>
+        // 滚动 aniview
+        var options = {
+            animateClass: 'animate__animated',
+            animateThreshold: 100,
+            scrollPollInterval: 20
+        };
+        $('.aniview').AniView(options);
+
+    </script>
+</body>
+
+</html>

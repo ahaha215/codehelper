@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 nav footer样式 -->
+    <link rel="stylesheet" href="../static/css/nav-footer.css" th:href="@{/css/nav-footer.css}">
+    <!-- 引入 blog 样式 -->
+    <link rel="stylesheet" href="../static/css/blog.css" th:href="@{/css/blog.css}">
+    <!-- 引入 animate 样式 -->
+    <link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+</head>
+
+<body>
+
+    <!-- 头部部分 -->
+    <nav class="menu">
+        <div class="container clearfix">
+            <div class="logo left"><a href="/welcome">CodeHelper</a></div>
+            <ul class="left clearfix">
+                <li><a href="/index">首页</a></li>
+                <li><a href="/blog" class="active">博客</a></li>
+                <li><a href="/resource">资源</a></li>
+                <li><a href="/wish">世界</a></li>
+                <li><a href="/aboutUserResource">个人</a></li>
+                <li><a href="/aboutWebMaster">关于站长</a></li>
+            </ul>
+            <div class="login">
+                <a th:if="${loginUser == null}" class="login-a" href="/login">登 录</a>
+                <div class="login-user-msg" th:if="${loginUser != null}">
+                    <div class="msg-main clearfix">
+                        <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${loginUser.headPortrait}}" alt="">
+                        <span class="left" th:text="${loginUser.username}">李先生</span>
+                    </div>
+                    <div class="logout-a">
+                        <a href="/logout.do">退 出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 中间主体部分 -->
+    <div class="blog-main clearfix">
+        <div class="main-left left">
+            <form action="/searchBlogPage.do" class="search clearfix">
+                <input type="text" class="left" name="blogTitleLike" placeholder="搜索博客...">
+                <button class="left">
+                    <img src="../static/images/search.png" th:src="@{/images/search.png}" alt="">
+                </button>
+            </form>
+            <div class="blog-list">
+                <a th:href="@{/blogDetail.do(blogId=${blogInfo.blog.id})}" class="blog-item" th:each="blogInfo : ${blogList}">
+                    <div class="blog-item-top clearfix">
+                        <div class="blog-item-top-left left">
+                            <h2 th:text="${blogInfo.blog.title}">深入理解Java JVM</h2>
+                            <span class="bolg-item-content" th:text="${blogInfo.blog.description}">
+                                正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已…...
+                            </span>
+                        </div>
+                        <div class="blog-item-top-right right">
+                            <img src="../static/images/1005-800x450.jpg" alt="博客首图" th:src="@{${blogInfo.blog.firstPicture}}">
+                        </div>
+                    </div>
+                    <div class="blog-item-bottom clearfix">
+                        <div class="head-portrait left">
+                            <img src="../static/images/1005-800x450.jpg" alt="用户头像" th:src="@{${blogInfo.user.headPortrait}}">
+                        </div>
+                        <span class="blog-autor left" th:text="${blogInfo.user.username}">
+                            李停
+                        </span>
+                        <span class="blog-published-time left" th:text="${blogInfo.updateTimeStr}">
+                            2022-01-18
+                        </span>
+                        <span class="blog-watched-sum left" th:text="${blogInfo.blog.viewSum}">
+                            2000
+                        </span>
+                        <span class="blog-tag right" th:each="typeName : ${blogInfo.blog.blogTypes}">
+                            [[${typeName}]]
+                        </span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="turn-pages clearfix">
+                <a th:href="@{/blogPage.do(pageNum=${blogPageInfo.nextPage})}" class="right nex-btn" th:class="${blogPageInfo.hasNextPage}?'right nex-btn':'right nex-btn disabled'">
+                    <img src="../static/images/turn-pages-nex.png" th:src="@{/images/turn-pages-nex.png}" alt="">
+                </a>
+                <a th:href="@{/blogPage.do(pageNum=${blogPageInfo.prePage})}" class="right pre-btn" th:class="${blogPageInfo.hasPreviousPage}?'right pre-btn':'right pre-btn disabled'">
+                    <img src="../static/images/turn-pages-pre.png" th:src="@{/images/turn-pages-pre.png}" alt="">
+                </a>
+                <span class="right pages">共计：<span class="total-sum" th:text="${blogPageInfo.pages}">10</span> 页，当前第：<span class="current-sum" th:text="${blogPageInfo.pageNum}">10</span> 页</span>
+            </div>
+
+        </div>
+        <div class="main-right right">
+            <div class="caption clearfix">
+                <span th:text="${blogPageInfo.total}">1000</span>
+                <span>博客数</span>
+            </div>
+            <div class="blog-tag">
+                <div class="tag-top clearfix">
+                    <span class="line"></span>
+                    <span class="tag-title left">博客标签归档</span>
+
+                </div>
+                <div class="tag-list">
+                    <div class="tag-item clearfix" th:each="sumTopBlog : ${blogSumByTypeIdTop}">
+                        <span class="left" th:text="${sumTopBlog.type.typeName}">Java</span>
+                        <span class="right" th:text="${sumTopBlog.sum}">10 篇</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-new">
+                <div class="blog-new-top clearfix">
+                    <span class="line"></span>
+                    <span class="blog-new-title left">博客最新推荐</span>
+                </div>
+                <div class="blog-new-list">
+                    <div class="blog-new-item clearfix" th:each="newBlog : ${newBlogs}">
+                        <a th:href="@{/blogDetail.do(blogId=${newBlog.id})}" class="left" th:text="${newBlog.title}">深入理解Java 虚拟机</a>
+                        <span class="right"> >> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+
+    <!-- 引入 public  js -->
+    <script type="text/javascript" src="../static/js/public.js" th:src="@{/js/public.js}"></script>
+    <!-- 页面滚动效果 -->
+    <script src="../static/js/jquery-3.6.0.min.js" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script src="../static/js/jquery.aniview.js" th:src="@{/js/jquery.aniview.js}"></script>
+    <script>
+        // 滚到指定位置固定
+        window.onscroll=function(){
+            var obj = document.getElementsByClassName("main-right")[0];
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(scrollTop)
+            if(scrollTop < 550){
+                obj.style.position = 'static';
+                obj.style.marginLeft = "0";
+                obj.style.bottom = "0";
+            }else{
+                obj.style.position = 'fixed';
+                obj.style.bottom = '70px';
+                obj.style.marginLeft = "938px";
+            }
+        }
+
+        // 滚动 aniview
+        var options = {
+            animateClass: 'animate__animated',
+            animateThreshold: 100,
+            scrollPollInterval: 20
+        };
+        $('.aniview').AniView(options);
+    </script>
+</body>
+
+</html>

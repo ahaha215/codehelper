@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.ResourceToTypeMapper">
+    <insert id="insertResourceToTypeMapper">
+        insert into
+        t_resource_to_type(resource_id,type_id)
+        values (#{resourceId},#{typeId})
+    </insert>
+
+    <select id="selectAllTypeIdByResourceId" resultType="long">
+        select
+        type_id
+        from
+        t_resource_to_type
+        where resource_id = #{resourceId}
+    </select>
+</mapper>

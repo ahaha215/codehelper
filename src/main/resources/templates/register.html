@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 register 样式-->
+    <link rel="stylesheet" href="../static/css/register.css" th:href="@{/css/register.css}">
+</head>
+<body>
+
+    <div class="register-container clearfix">
+        <div class="left-img left">
+            <img src="../static/images/login-bg.jpg" th:src="@{/images/login-bg.jpg}" alt="">
+        </div>
+
+        <div class="register-content right">
+            <form method="post" action="/register.do" enctype="multipart/form-data">
+                <span>* 用户名</span> <span class="register-msg" th:text="${msg}"></span>
+                <input type="text" name="username">
+                <span>* 密 码</span>
+                <input type="password" name="password">
+                <span>* 邮 箱</span>
+                <input type="text" name="email">
+                <span>* 用户头像</span>
+                <input type="file" class="head-portrait" name="headPortraitFile">
+                <button>注 册</button>
+            </form>
+            <a href="/login" class="login-btn">已有账号，去登录</a>
+        </div>
+
+    </div>
+</body>
+
+</html>

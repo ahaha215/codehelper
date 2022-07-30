@@ -1,0 +1,174 @@
+.resource-detail{
+    width: 800px;
+    margin: auto;
+}
+
+.resource-detail .icon,
+.resource-detail .icon img{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.resource-detail h2{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.resource-detail .view-sum{
+    text-align: center;
+    width: 60px;
+    margin: 20px auto auto;
+}
+
+.resource-detail .view-sum img{
+    width: 20px;
+    height: 20px;
+}
+
+.resource-detail .view-sum span{
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.resource-detail .description{
+    font-size: 14px;
+    line-height: 30px;
+    margin-top: 20px;
+    color: #000000D9;
+}
+
+.resource-detail .types{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.resource-detail .types span{
+    display: inline-block;
+    line-height: 18px;
+    border: 1px solid #000000D9;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    color: #000000D9;
+    font-size: 12px;
+}
+
+.resource-detail .link{
+    margin-top: 100px;
+}
+
+.resource-detail .link a{
+    color: #00a8c6;
+}
+
+.resource-detail .create-date{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.resource-detail .create-date .date{
+    font-size: 14px;
+}
+
+.resource-detail .author img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.resource-detail .author .username{
+    margin-top: 2px;
+    margin-left: 8px;
+}
+
+
+.comment{
+    margin-top: 80px;
+}
+
+.comment textarea{
+    padding: 20px;
+    width: 758px;
+    height: 100px;
+    border: 1px rgb(204, 204, 204) solid;
+}
+
+.comment button{
+    background-color: #00b5ad;
+    color: whitesmoke;
+    font-size: 14px;
+    font-weight: bolder;
+    width: 90px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 4px;
+    margin-top: 12px;
+}
+
+.comment-list{
+    margin-top: 50px;
+}
+
+.comment-list .comment-item{
+    width: 820px;
+    margin-bottom: 50px;
+    padding-top: 12px;
+}
+
+.comment-item .comment-user-head-portrait img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.comment-item .comment-content{
+    width: 740px;
+    margin-left: 15px;
+}
+
+.comment-item .comment-content .comment-username{
+    font-size: 16px;
+    font-weight: bolder;
+    color: #34495E;
+}
+
+.comment-item .comment-content .comment-time{
+    font-size: 12px;
+    margin-left: 12px;
+    color: #a7a7a7;
+}
+.comment-item .comment-content .comment-text{
+    margin-top: 8px;
+    display: block;
+    font-size: 14px;
+    color: #939393;
+    line-height: 25px;
+}
+
+.comment-item .comment-content .del-comment{
+    font-size: 12px;
+}
+
+.comment-item .comment-content .del-comment:hover{
+    color: red;
+}
+
+.turn-pages .pre-btn img{
+    width: 15px;
+    height: 15px;
+    margin-right: 50px;
+}
+
+.turn-pages .nex-btn img{
+    width: 15px;
+    height: 15px;
+}
+
+.turn-pages .pages{
+    margin-right: 50px;
+}

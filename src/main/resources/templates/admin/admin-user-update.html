@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户修改-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 admin nav footer 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-nav-footer.css" th:href="@{/css/admin-nav-footer.css}">
+    <!-- 引入 admin-list 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-list.css" th:href="@{/css/admin-list.css}">
+    <!-- 引入 admin-add 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-add.css" th:href="@{/css/admin-add.css}">
+</head>
+
+<body>
+
+    <!-- 顶部部分 -->
+    <nav class="nav clearfix">
+        <ul class="right clearfix">
+            <li><a href="/logout.do">Log Out</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主体部分 -->
+    <div class="main clearfix">
+        <!-- 左边导航栏部分 -->
+        <div class="menu left">
+            <div class="log">
+                <h1>
+                    <a href="/adminIndex">CodeHelper</a>
+                </h1>
+            </div>
+            <ul>
+                <li><a href="/adminWebSiteBanner">Web Management</a></li>
+                <li class="admin-active"><a href="/adminUser">User Management</a></li>
+                <li><a href="/adminType">Type Management</a></li>
+                <li><a href="/adminBlog">Blog Management</a></li>
+                <li><a href="/adminResource">Reso Management</a></li>
+                <li><a href="/adminWish">Wish Management</a></li>
+                <li><a href="/adminPartner">Part Management</a></li>
+            </ul>
+        </div>
+        <!-- 中间主体部分 -->
+        <div class="admin-container left">
+            <div class="box clearfix">
+                <a href="/adminUserAdd" class="right">新增</a>
+                <a href="/adminUser" class="right">列表</a>
+            </div>
+
+            <form class="from-admin-add" action="/updateUser.do" method="post" enctype="multipart/form-data">
+                <ul>
+                    <li class="add-user-msg">
+                        <span th:text="${msg}"></span>
+                    </li>
+                    <li class="clearfix">
+                        <!--隐藏的用户id信息-->
+                        <input type="hidden" name="id" th:value="${userInfo.id}">
+                        <span class="left">用户名:</span>
+                        <input class="right" type="text" name="username" th:value="${userInfo.username}">
+                    </li>
+                    <li class="clearfix">
+                        <span class="left">密 码:</span>
+                        <input class="right" type="text" name="password" th:value="${userInfo.password}">
+                    </li>
+                    <li class="clearfix">
+                        <span class="left">邮 箱:</span>
+                        <input class="right" type="text" name="email"  th:value="${userInfo.email}">
+                    </li>
+                    <li class="role clearfix">
+                        <span class="left">类 型:</span>
+                        <input class="left user-type-first" type="radio" name="userType" value="普通用户" th:attr="checked=${userInfo.userType=='普通用户'?true:false}"><span class="left">用户</span>
+                        <input class="left" type="radio" name="userType" value="管理员" th:attr="checked=${userInfo.userType=='管理员'?true:false}"><span class="left">管理员</span>
+                    </li>
+                    <li class="clearfix">
+                        <span class="left">头 像:</span>
+                        <input class="right last" type="file" name="headPortraitFile">
+                    </li>
+                </ul>
+                <button>提 交</button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

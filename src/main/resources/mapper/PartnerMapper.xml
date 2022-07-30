@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.PartnerMapper">
+    <insert id="insertPartner">
+        insert into
+        t_partner(id,content,audit,create_time,user_id)
+        value (#{partner.id},#{partner.content},#{partner.audit},#{partner.createTime},#{userId});
+    </insert>
+
+    <delete id="deletePartner">
+        delete from
+        t_partner
+        where id = #{partnerId}
+    </delete>
+
+    <select id="selectAllPartner" resultType="com.lt.codehelper.entity.Partner">
+        select
+        *
+        from
+        t_partner
+    </select>
+
+    <select id="selectPartnerByLike" resultType="com.lt.codehelper.entity.Partner">
+        select
+        *
+        from
+        t_partner
+        where content like #{partnerContentLike}
+    </select>
+
+    <select id="selectAllPartnerByUserId" resultType="com.lt.codehelper.entity.Partner">
+        select
+        *
+        from
+        t_partner
+        where user_id = #{loginUserId}
+    </select>
+
+    <select id="selectAllPendingAuditPartner" resultType="com.lt.codehelper.entity.Partner">
+        select
+        *
+        from
+        t_partner
+        where audit = '待审核'
+    </select>
+
+    <select id="selectAllPassAuditPartner" resultType="com.lt.codehelper.entity.Partner">
+        select
+        *
+        from
+        t_partner
+        where audit = '已通过'
+    </select>
+
+    <select id="selectPartnerById" resultType="com.lt.codehelper.entity.Partner">
+        select
+        *
+        from
+        t_partner
+        where id = #{partnerId}
+    </select>
+
+    <select id="selectUserIdByPartnerId" resultType="long">
+        select
+        user_id
+        from
+        t_partner
+        where id = #{partnerId}
+    </select>
+
+    <update id="updatePartnerAudit">
+        update
+        t_partner
+        set audit = #{audit}
+        where id = #{partnerId}
+    </update>
+</mapper>

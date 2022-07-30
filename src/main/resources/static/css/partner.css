@@ -1,0 +1,211 @@
+/*用户找伙伴开始*/
+.partner-find-box{
+    width: 1137px;
+    margin: 1px auto auto;
+}
+
+.partner-find-box h2{
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.partner-find-box h2:hover{
+    color: #1abc9c;
+}
+
+.partner-find-box .findPartner{
+    margin-left: 25px;
+    color: #1abc9c;
+}
+
+.partner-find-box .des{
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 25px;
+}
+
+.partner-find-box .find-partner-from{
+    margin-top: 80px;
+    width: 1000px;
+}
+
+.partner-find-box .find-partner-from .partner-container span{
+    height: 40px;
+    line-height: 40px;
+}
+
+.partner-find-box .find-partner-from .partner-container input{
+    border: 1px solid #cecece;
+    height: 35px;
+    width: 850px;
+    border-radius: 4px;
+    text-indent: 1em;
+}
+
+.partner-find-box .find-partner-from .partner-container input:hover,
+.partner-find-box .find-partner-from .partner-container input:focus{
+    border-color: teal;
+}
+
+.partner-find-box .partner-types{
+    margin-top: 40px;
+}
+
+.partner-find-box .partner-types ul{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.partner-find-box .partner-types ul li{
+    margin-top: 12px;
+    margin-right: 20px;
+}
+
+.hint-info{
+    display: block;
+    margin-top: 50px;
+}
+
+.msg{
+    color: red;
+    display: block;
+    height: 20px;
+    margin-left: 2px;
+}
+
+.find-partner-btn{
+    display: block;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: whitesmoke;
+    background-color: #1abc9c;
+    margin-top: 25px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/*用户找伙伴结束*/
+
+/*找寻伙伴的列表开始*/
+.partner-top{
+    margin-bottom: 50px;
+}
+
+.partner-list{
+    margin-top: 20px;
+}
+
+.partner-item{
+    margin-bottom: 80px;
+}
+
+.partner-item img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.partner-item .content{
+    margin-top: 6px;
+    display: block;
+    width: 1065px;
+    height: 40px;
+    overflow: hidden;
+    line-height: 21px;
+}
+
+.partner-item .partner-types span{
+    border: 1px solid #c0c0c0;
+    color: #6f6f6f;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.time{
+    margin-top: 16px;
+    font-size: 13px;
+    color: #6f6f6f;
+}
+
+.touch img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.partner-bottom{
+    position: relative;
+}
+
+.touch-box{
+    position: absolute;
+    top: -40px;
+    right: 2px;
+    border: 1px solid #1abc9c;
+    padding: 8px 15px;
+    border-radius: 4px;
+    display: none;
+}
+
+.touch:hover > .touch-box{
+    display: block;
+}
+
+.turn-pages .pre-btn img{
+    width: 15px;
+    height: 15px;
+    margin-right: 50px;
+}
+
+.turn-pages .nex-btn img{
+    width: 15px;
+    height: 15px;
+}
+
+.turn-pages .pages{
+    margin-right: 50px;
+}
+/*找寻伙伴的列表结束*/
+
+/*-----------管理端-------------*/
+
+
+/*管理员心愿审核开始*/
+.partner-audit{
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 700px;
+}
+
+.partner-audit ul li{
+    margin-bottom: 50px;
+}
+
+.partner-audit ul li .content{
+    margin-left: 50px;
+}
+
+.partner-audit ul li .content span{
+    margin-right: 20px;
+}
+
+.partner-audit a{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    background-color: teal;
+    color: whitesmoke;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+}
+
+.partner-audit .yes{
+    margin-right: 12px;
+}
+/*管理员心愿审核结束*/

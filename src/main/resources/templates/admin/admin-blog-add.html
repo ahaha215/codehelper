@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客新增-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 nav footer 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-nav-footer.css" th:href="@{/css/admin-nav-footer.css}">
+    <!-- 引入 admin-blog-input 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-blog-add.css" th:href="@{/css/admin-blog-add.css}">
+    <!-- 引入 markdown 样式 -->
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+</head>
+
+<body>
+
+    <!-- 顶部部分 -->
+    <nav class="nav clearfix">
+        <ul class="right clearfix">
+            <li><a href="/logout.do">Log Out</a></li>
+        </ul>
+    </nav>
+
+    <div class="main clearfix">
+        <!-- 左边导航栏部分 -->
+        <div class="menu left">
+            <div class="log">
+                <h1>
+                    <a href="/adminIndex">CodeHelper</a>
+                </h1>
+            </div>
+            <ul>
+                <li><a href="/adminWebSiteBanner">Web Management</a></li>
+                <li><a href="/adminUser">User Management</a></li>
+                <li><a href="/adminType">Type Management</a></li>
+                <li class="admin-active"><a href="/adminBlog">Blog Management</a></li>
+                <li><a href="/adminResource">Reso Management</a></li>
+                <li><a href="/adminWish">Wish Management</a></li>
+                <li><a href="/adminPartner">Part Management</a></li>
+            </ul>
+        </div>
+        <!-- 中间主体部分 -->
+        <div class="admin-blog-input-container left">
+            <div class="box clearfix">
+                <a href="/adminBlogAdd" class="right blogs-active">发布</a>
+                <a href="/adminBlog" class="right">列表</a>
+            </div>
+
+            <form method="post" action="/addBlog.do" enctype="multipart/form-data" class="blog">
+                <label class="add-msg" style="color:red;">
+                    <span th:text="${msg}"></span>
+                </label>
+                <div class="blog-head">
+                    <select class="blog-flag" name="flag">
+                        <option value="原创">原 创</option>
+                        <option value="转载">转 载</option>
+                    </select>
+                    <input class="blog-name" type="text" placeholder="博客名称" name="title">
+                    <span class="img-label">博客首图 ： </span><input class="blog-img" type="file" name="firstPictureFile">
+                    <span class="type-label">博客类型 ： </span>
+                    <span th:each="type : ${allType}">
+                        <input class="blog-type" type="checkbox" name="blogTypes" th:value="${type.typeName}"><label th:text="${type.typeName}">Java</label>
+                    </span>
+
+                    <textarea class="blog-dec" name="description">请填写博客描述...
+                    </textarea>
+                </div>
+                <div id="md-context">
+                    <textarea style="display: none;" name="content">[TOC]
+
+#### Disabled options
+
+ - TeX (Based on KaTeX);
+ - Emoji;
+ - Task lists;
+ - HTML tags decode;
+ - Flowchart and Sequence Diagram;
+
+#### Editor.md directory
+
+    editor.md/
+            lib/
+            css/
+            scss/
+            tests/
+            fonts/
+            images/
+            plugins/
+            examples/
+            languages/
+            editormd.js
+            ...
+
+```html
+&lt;!-- English --&gt;
+&lt;script src="../dist/js/languages/en.js"&gt;&lt;/script&gt;
+
+&lt;!-- 繁體中文 --&gt;
+&lt;script src="../dist/js/languages/zh-tw.js"&gt;&lt;/script&gt;
+```
+                </textarea>
+                </div>
+                <div class="bottom clearfix">
+                    <input type="hidden" class="published-label" name="published" value="">
+                    <button class="right fb">发布</button>
+                    <button class="right save">保存</button>
+                    <button class="right return">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+
+    <script src="../../static/js/jquery-3.6.0.min.js" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+    <script>
+        // --------- Makerdown编辑器初始化 ---------- //
+        var editor;
+        $(function () {
+            editor = editormd("md-context", {
+                width: "100%",
+                height: 640,
+                syncScrolling: "single",
+                path: "/lib/editormd/lib/"
+                // path:"../../static/lib/editormd/lib/"
+            });
+        });
+
+        $(".fb").click(function () {
+            $(".published-label").val("发布");
+        });
+        $(".save").click(function () {
+            $(".published-label").val("保存");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源上传-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 admin nav footer 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-nav-footer.css" th:href="@{/css/admin-nav-footer.css}">
+    <!-- 引入 admin-resource-audit 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-resource-audit.css" th:href="@{/css/admin-resource-audit.css}">
+    <!-- 引入 resource-add 样式 -->
+    <link rel="stylesheet" href="../../static/css/resource-add.css" th:href="@{/css/resource-add.css}">
+    <!-- 引入 animate 样式 -->
+    <link rel="stylesheet" href="../../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+</head>
+<body>
+
+<!-- 顶部部分 -->
+<nav class="nav clearfix">
+    <ul class="right clearfix">
+        <li><a href="/logout.do">Log Out</a></li>
+    </ul>
+</nav>
+
+<div class="main clearfix">
+    <!-- 左边导航栏部分 -->
+    <div class="menu left">
+        <div class="log">
+            <h1>
+                <a href="/adminIndex">CodeHelper</a>
+            </h1>
+        </div>
+        <ul>
+            <li><a href="/adminWebSiteBanner">Web Management</a></li>
+            <li><a href="/adminUser">User Management</a></li>
+            <li><a href="/adminType">Type Management</a></li>
+            <li><a href="/adminBlog">Blog Management</a></li>
+            <li class="admin-active"><a href="/adminResource">Reso Management</a></li>
+            <li><a href="/adminWish">Wish Management</a></li>
+            <li><a href="/adminPartner">Part Management</a></li>
+        </ul>
+    </div>
+    <!-- 中间主体部分 -->
+    <div class="resource-add-main left" id="admin-the">
+        <form class="from-resource-add" action="/releaseResource.do" method="post" enctype="multipart/form-data">
+            <ul>
+                <li class="add-resource-msg left">
+                    <span th:text="${msg}"></span>
+                </li>
+                <li class="clearfix">
+                    <span class="left">* 名 称:</span>
+                    <input class="right" type="text" name="resourceName">
+                </li>
+                <li class="clearfix">
+                    <span class="left">* 描 述:</span>
+                    <input class="right" type="text" name="description">
+                </li>
+                <li class="clearfix">
+                    <span class="left">* 链 接:</span>
+                    <input class="right" type="text" name="linkAddress">
+                </li>
+                <li class="tag clearfix">
+                    <span class="left resource-tag-first">* 标 签:</span>
+                    <span th:each="type : ${allType}">
+                      <input class="left" type="checkbox" name="resourceTypes" th:value="${type.typeName}"><span class="left" th:text="${type.typeName}">Java</span>
+                    </span>
+                </li>
+                <li class="clearfix">
+                    <span class="left">* 详 情:</span>
+                    <textarea class="right" name="detail"></textarea>
+                </li>
+                <li class="clearfix">
+                    <span class="left">* 图 标:</span>
+                    <input class="right last" type="file" name="iconFile">
+                </li>
+            </ul>
+            <button>提 交</button>
+        </form>
+        <span class="hint-info">注：管理员端登录不需进行审核便可以直接发布！</span>
+    </div>
+</div>
+
+<!-- 尾部部分 -->
+<footer class="footer">
+    <div class="text">
+        Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+    </div>
+</footer>
+<script>
+    var msg = document.querySelector(".msg").value;
+    if ("" != msg){
+        // 如果提示信息不为空，则弹出提示信息
+        alert(msg);
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+/*博客样式表*/
+.blog-main{
+    width: 1137px;
+    margin: 50px auto auto;
+}
+
+/*博客主体左边列表*/
+.blog-main .main-left{
+    width: 850px;
+    border-radius: 4px;
+    min-height: 2500px;
+}
+
+.blog-main .main-left .blog-list .blog-item{
+    display: block;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+.blog-main .main-left .blog-list .blog-item:hover h2{
+    font-weight: bolder;
+}
+
+.blog-main .main-left .blog-list .blog-item .blog-item-top .blog-item-top-left{
+    width: 600px;
+    height: 130px;
+}
+
+.blog-main .main-left .blog-list .blog-item .blog-item-top .blog-item-top-left h2{
+    font-size: 20px;
+}
+
+.blog-main .main-left .blog-list .blog-item .blog-item-top .blog-item-top-left .bolg-item-content{
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 24px;
+    height: 5.2em;
+    overflow: hidden;
+}
+
+.blog-main .main-left .blog-list .blog-item .blog-item-top .blog-item-top-right img{
+    width: 170px;
+    height: 100px;
+    border-radius: 4px;
+}
+
+.blog-main .main-left .blog-list .blog-item .blog-item-bottom .head-portrait img{
+    width: 30px;   
+    height: 30px;
+    border-radius: 50%;
+}
+
+.blog-main .main-left .blog-list .blog-item .blog-item-bottom span{
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #00000088;
+    font-size: 12px;
+}
+
+.blog-main .main-left .blog-list .blog-item .blog-item-bottom .blog-autor{
+    color: #4183c4;
+}
+
+.blog-main .main-left .blog-list .blog-item .blog-item-bottom .blog-tag{
+    color: black;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-right: 8px;
+    border: 1px solid #c0c0c0;
+    padding: 5px 12px;
+    border-radius: 4px;
+}
+
+.blog-main .turn-pages .pre-btn,
+.blog-main .turn-pages .pre-btn img{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 50px;
+}
+
+.blog-main .turn-pages .nex-btn,
+.blog-main .turn-pages .nex-btn img{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+
+.blog-main .turn-pages .pages{
+    margin-right: 50px;
+}
+
+/*博客主体右边相关信息*/
+.blog-main .main-right{
+    width: 200px;
+}
+
+.blog-main .main-right .caption{
+    width: 100%;
+    height: 60px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.blog-main .main-right .caption span{
+    display: block;
+    margin-top: 12px;
+}
+
+.blog-main .main-right .caption span:last-of-type{
+    font-size: 13px;
+}
+
+/*博客标签*/
+.blog-main .main-right .blog-tag .tag-top{
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.blog-main .main-right .blog-tag .tag-top .tag-title{
+    font-size: 16px;
+}
+
+.blog-main .main-right .line{
+    display: block;
+    width: 50px;
+    border: 2px solid #00b5ad;
+    background-color: #00b5ad;
+    margin-bottom: 12px;
+}
+
+.blog-main .main-right .blog-tag .tag-top .tag-more{
+    font-size: 12px;
+    cursor: pointer;
+    color: #4183c4;
+}
+
+.blog-main .main-right .blog-tag .tag-list .tag-item{
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+.blog-main .main-right .blog-tag .tag-list .tag-item:hover{
+    font-weight: bolder;
+}
+
+/* ----------最新博客推荐--------- */
+.blog-main .main-right .blog-new{
+    margin-top: 80px;
+}
+
+.blog-main .main-right .blog-new .blog-new-top{
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.blog-main .main-right .blog-new .blog-new-top .blog-new-title{
+    font-size: 15px;
+}
+
+.blog-main .main-right .blog-new .blog-new-list .blog-new-item{
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+.blog-main .main-right .blog-new .blog-new-list .blog-new-item:hover{
+    font-weight: bolder;
+}
+

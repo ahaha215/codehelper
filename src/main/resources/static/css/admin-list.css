@@ -1,0 +1,143 @@
+/* -------------------admin list css--------------------- */
+.admin-container{
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.admin-container .box{
+    width: 1200px;
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+}
+
+.admin-container .box a{
+    margin-left: 8px;
+}
+
+.admin-container .box a:hover{
+    color: #00a8c6;
+}
+
+.box-active{
+    color: #00a8c6;
+}
+
+.admin-container .items{
+    width: 1200px;
+    border: 1px rgb(204, 204, 204) solid;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.admin-container .items table tr.title{
+    font-weight: bolder;
+}
+
+.admin-container .items table tr{
+    border-bottom: 1px rgb(204, 204, 204) solid;
+}
+
+.admin-container .items table tr:hover{
+    background-color: #c0c0c0;
+}
+
+.admin-container .items table tr td{
+    width: 200px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}
+
+.admin-container .items table td a.editor{
+    margin-left: 2px;
+}
+
+.admin-container .items table td a.del{
+    margin-left: 12px;
+}
+
+.admin-container .items table td a img{
+    width: 20px;
+    height: 20px;
+}
+
+.admin-container .items table td a.editor img{
+    width: 16px;
+    height: 16px;
+}
+
+.admin-container .items table td a img:hover{
+    width: 25px;
+    height: 25px;
+}
+
+.admin-container .items table td a.editor img:hover{
+    width: 21px;
+    height: 21px;
+}
+
+.admin-container .items .change .pre,
+.admin-container .items .change .nex{
+    width: 60px;
+    height: 30px;
+    border: 1px rgb(204, 204, 204) solid;
+    line-height: 30px;
+    margin-top: 12px;
+    margin-left: 12px;
+    text-align: center;
+}
+
+.admin-container .items .change .add{
+    width: 60px;
+    height: 30px;
+    border: 1px #00b5ad solid;
+    color: #00b5ad;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 12px;
+    margin-right: 12px;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

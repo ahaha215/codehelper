@@ -1,0 +1,166 @@
+.resource-main{
+    width: 1137px;
+    margin: auto;
+}
+
+.resource-main .main-left{
+    width: 850px;
+    min-height: 1575px;
+}
+
+.resource-main .resource-item{
+    width: 380px;
+    height: 235px;
+    margin-bottom: 60px;
+}
+
+.resource-main .resource-item:hover .resource-title{
+    font-weight: bolder;
+}
+
+.resource-main .resource-item:nth-child(even){
+    margin-left: 80px;
+}
+
+.resource-main .resource-item .resource-top{
+    width: 100%;
+    height: 100px;
+}
+
+.resource-main .resource-item .resource-top .resource-img{
+    width: 100px;
+    height: 100px;
+}
+
+.resource-main .resource-item .resource-top .resource-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.resource-main .resource-item .resource-top .resource-content{
+    width: 250px;
+    height: 100px;
+}
+
+.resource-main .resource-item .resource-top .resource-content .resource-title{
+    margin-top: 10px;
+    margin-bottom: 18px;
+    font-size: 20px;
+}
+
+.resource-main .resource-item .resource-top .resource-content .resource-description{
+    line-height: 25px;
+    font-size: 13px;
+    color: #909090;
+}
+
+.resource-main .resource-item .resource-tags{
+    width: 100%;
+    height: 20px;
+    margin-top: 30px;
+    font-size: 12px;
+}
+
+.resource-main .resource-item .resource-tags .resource-tag{
+    display: inline-block;
+    line-height: 18px;
+    border: 1px solid #909090;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+}
+
+.resource-main .resource-item .resource-bottom{
+    margin-top: 50px;
+    color: #909090;
+}
+
+.resource-main .resource-item .resource-bottom .viewSum img{
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+
+.resource-main .resource-item .resource-bottom .viewSum span{
+    font-size: 12px;
+    line-height: 20px;
+    margin-left: 4px;
+}
+
+.resource-main .resource-item .resource-bottom a img{
+    width: 20px;
+    height: 20px;
+}
+
+.resource-main .turn-pages .pre-btn img{
+    width: 15px;
+    height: 15px;
+    margin-right: 50px;
+}
+
+.resource-main .turn-pages .nex-btn img{
+    width: 15px;
+    height: 15px;
+}
+
+.resource-main .turn-pages .pages{
+    margin-right: 50px;
+}
+/*右边部分*/
+.resource-main .main-right{
+    width: 200px;
+}
+
+.resource-main .main-right .recommend-btn{
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: #1abc9c;
+    text-align: center;
+    line-height: 40px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: whitesmoke;
+    letter-spacing: 8px;
+    font-weight: bolder;
+}
+
+.resource-main .main-right .caption{
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.resource-main .main-right .caption span{
+    display: block;
+    margin-top: 12px;
+}
+
+.resource-main .main-right .caption span:last-of-type{
+    font-size: 13px;
+}
+
+.resource-main .main-right .new-resource{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.resource-main .main-right .new-resource h2{
+    font-size: 16px;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+
+.resource-main .main-right .new-resource .new-resource-item{
+    display: block;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.resource-main .main-right .new-resource .new-resource-item:hover{
+    font-weight: bolder;
+}
+

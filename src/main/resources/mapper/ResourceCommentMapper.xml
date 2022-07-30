@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.ResourceCommentMapper">
+    <insert id="insertResourceComment">
+        insert into
+        t_resource_comment(id,content,create_time,resource_id,user_id)
+        value (#{resourceComment.id},#{resourceComment.content},#{resourceComment.createTime},#{resourceId},#{userId})
+    </insert>
+
+    <delete id="deleteResourceComment">
+        delete from
+        t_resource_comment
+        where id = #{commentId}
+    </delete>
+
+    <select id="selectAllResourceComment" resultType="com.lt.codehelper.entity.ResourceComment">
+        select
+        *
+        from
+        t_resource_comment
+        where resource_id = #{resourceId}
+    </select>
+
+    <select id="selectUserIdByResourceCommentId" resultType="long">
+        select
+        user_id
+        from
+        t_resource_comment
+        where id = #{resourceCommentId}
+    </select>
+</mapper>

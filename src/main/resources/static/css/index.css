@@ -1,0 +1,342 @@
+/* ----------------------index 页面 css---------------------- */
+.index-main{
+    width: 1137px;
+    margin: 2px auto auto;
+}
+
+/* -----------轮播图-------------- */
+.wrapper .swiper-wrapper .swiper-slide img{
+    width: 100%;
+    height: 300px;
+}
+
+.wrapper .swiper-container .swiper-pagination {
+    bottom: 25px;
+}
+
+.wrapper .swiper-container .swiper-pagination-bullet {
+    opacity: 1;
+    position: relative;
+    width: 50px;
+    height: 3px;
+    border-radius: 0;
+    margin: 0 4px;
+    background-color: rgba(0,0,0,0.5);
+    transition: background-color .3s ease;
+}
+
+.wrapper .swiper-container .swiper-pagination-bullet::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+}
+
+.wrapper .swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active::before {
+    animation: sliderPagination 3s linear forwards
+}
+
+.wrapper .swiper-container .swiper-pagination-bullet:hover {
+    background-color: #fff;
+}
+
+@keyframes sliderPagination {
+    100% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+/* -------好的推荐------ */
+
+.index-main .good-recommendation{
+    width: 100%;
+    height: 200px;
+    margin-top: 60px;
+}
+
+.index-main .good-recommendation a,
+.index-main .good-recommendation a img{
+    float: left;
+    margin-left: 12px;
+    width: 371px;
+    height: 200px;
+}
+.index-main .good-recommendation a img{
+    transition: all 1s ease 0s;
+}
+
+.index-main .good-recommendation a img:hover{
+    transform: scale(1.02);
+}
+
+.index-main .good-recommendation a:first-child{
+    margin-left: -12px;
+}
+
+/* ------------------- 主页主体 --------------------- */
+.index-main .index-box{
+    width: 100%;
+    margin-top: 60px;
+}
+
+.index-main .index-box-left{
+    width: 800px;
+    margin-top: 74px;
+}
+
+.index-main .index-box-right{
+    width: 250px;
+    margin-top: 74px;
+}
+
+.index-main .index-box-left h2{
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+/* ------------博客列表------------ */
+.index-main .index-box-left .index-blog .blog-list{
+    margin-top: 60px;
+}
+
+.index-main .index-box-left .index-blog .blog-list .blog-item{
+    width: 100%;
+    height: 150px;
+    margin-top: 40px;
+    display: block;
+}
+
+.index-main .index-box-left .index-blog .blog-list .blog-item:hover>h4{
+    font-weight: bolder;
+}
+
+.index-main .index-box-left .index-blog .blog-list .blog-item h4{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.index-main .index-box-left .index-blog .blog-list .blog-item .blog-content .blog-img img{
+    width: 200px;
+    height: 100px;
+    border-radius: 4px;
+}
+
+.index-main .index-box-left .index-blog .blog-list .blog-item .blog-content .blog-right{
+    width: 580px;
+    margin-left: 20px;
+}
+
+.index-main .index-box-left .index-blog .blog-list .blog-item .blog-content .blog-right .blog-description{
+    line-height: 24px;
+    height: 70px;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.index-main .index-box-left .index-blog .blog-list .blog-item .blog-content .blog-right img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.index-main .index-box-left .index-blog .blog-list .blog-item .blog-content .blog-right .blog-message{
+    margin-top: 10px;
+}
+
+.index-main .index-box-left .index-blog .blog-list .blog-item .blog-content .blog-right .blog-message span{
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #00000088;
+    font-size: 12px;
+}
+
+.index-main .index-box-left .index-blog .blog-list .blog-item .blog-content .blog-right .blog-message .blog-autor{
+    color: #4183c4;
+}
+
+.index-main .index-box-left .index-blog .blog-list .blog-item .blog-content .blog-right .blog-message .blog-tag{
+    color: black;
+    font-size: 14px;
+    margin-top: 5px;
+    border: 1px solid #909090;
+    padding: 5px 12px;
+    border-radius: 4px;
+}
+
+/*资源列表*/
+.index-main .index-box-left .index-resource{
+    margin-top: 100px;
+}
+
+.index-main .index-resource .resource-list{
+    margin-top: 20px;
+}
+
+.index-main .index-resource .resource-list .resource-item{
+    display: block;
+    width: 360px;
+    height: 225px;
+    margin-top: 40px;
+}
+
+.resource-item{
+    width: 380px;
+    height: 235px;
+}
+
+.resource-item:hover .resource-title{
+    font-weight: bolder;
+}
+
+.resource-item:nth-child(even){
+    margin-left: 80px;
+}
+
+.resource-item .resource-top{
+    width: 100%;
+    height: 100px;
+}
+
+.resource-item .resource-top .resource-img{
+    width: 100px;
+    height: 100px;
+}
+
+.resource-item .resource-top .resource-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.resource-item .resource-top .resource-content{
+    width: 250px;
+    height: 100px;
+}
+
+.resource-item .resource-top .resource-content .resource-title{
+    margin-top: 10px;
+    margin-bottom: 18px;
+    font-size: 20px;
+}
+
+.resource-item .resource-top .resource-content .resource-description{
+    line-height: 25px;
+    font-size: 13px;
+    color: #909090;
+}
+
+.resource-item .resource-additional{
+    width: 100%;
+    height: 30px;
+    margin-top: 30px;
+    font-size: 12px;
+}
+
+.resource-item .resource-additional img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.resource-item .resource-additional .username{
+    margin-top: 8px;
+    margin-left: 12px;
+}
+
+.resource-item .resource-additional .create-date{
+    margin-top: 8px;
+    margin-left: 12px;
+}
+
+.resource-item .resource-tags{
+    width: 100%;
+    height: 20px;
+    margin-top: 30px;
+    font-size: 12px;
+}
+
+.resource-item .resource-tags .resource-tag{
+    display: inline-block;
+    line-height: 18px;
+    border: 1px solid #909090;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+}
+
+/* -----------------站长介绍-------------------- */
+.index-main .index-box-right .title{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.index-main .index-box-right .title .left-line{
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    top: 9px;
+    left: 25px;
+}
+
+.index-main .index-box-right .title .right-line{
+    display: inline-block;
+    width: 60px;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    top: 9px;
+    left: 165px;
+}
+
+.index-main .index-box-right .index-about-me .index-about-me-background-img .bg-img{
+    width: 250px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.index-main .index-box-right .index-about-me .index-about-me-background-img .index-header-img{
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color:whitesmoke;
+    position: absolute;
+    top: 120px;
+    left: 85px;
+}
+
+.index-main .index-box-right .index-about-me .index-header-img img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+ 
+.index-main .index-box-right .index-about-me .index-about-text{
+    width: 240px;
+    margin: auto;
+    margin-top: 40px;
+    line-height: 30px;
+    text-align: left;
+    text-indent: 2em;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+
+/* ----------------天气------------------ */
+.index-main .index-box-right .weather{
+    width: 250px;
+    height: 350px;
+    margin: auto;
+    margin-top: 60px;
+}

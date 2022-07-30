@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于站长-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 nav footer 样式 -->
+    <link rel="stylesheet" href="../static/css/nav-footer.css" th:href="@{/css/nav-footer.css}">
+    <!-- 引入 about-me 样式 -->
+    <link rel="stylesheet" href="../static/css/about-web-master.css" th:href="@{/css/about-web-master.css}">
+    <!-- 引入 animate 样式 -->
+    <link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+</head>
+
+<body>
+
+    <img class="bg" src="../static/images/about-me-bg.jpg" th:src="@{/images/about-me-bg.jpg}" alt="">
+    <!-- 头部部分 -->
+    <div class="header-container">
+        <nav class="menu">
+            <div class="container clearfix">
+                <div class="logo left"><a href="/welcome">CodeHelper</a></div>
+                <ul class="left clearfix">
+                    <li><a href="/index">首页</a></li>
+                    <li><a href="/blog">博客</a></li>
+                    <li><a href="/resource">资源</a></li>
+                    <li><a href="/wish">世界</a></li>
+                    <li><a href="/aboutUserResource">个人</a></li>
+                    <li><a href="/aboutWebMaster" class="active">关于站长</a></li>
+                </ul>
+                <div class="login">
+                    <a th:if="${loginUser == null}" class="login-a" href="/login">登 录</a>
+                    <div class="login-user-msg" th:if="${loginUser != null}">
+                        <div class="msg-main clearfix">
+                            <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${loginUser.headPortrait}}" alt="">
+                            <span class="left" th:text="${loginUser.username}">李先生</span>
+                        </div>
+                        <div class="logout-a">
+                            <a href="/logout.do">退 出</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="name-motto">
+        <span class="name">李先生</span>
+        <!-- 使用span显示文字, data-text为Json格式的数组 -->
+        <span id="text" class="motto" data-text='["如饥似渴，大智若愚！","Keep hunger，keep foolish ！"]'></span>
+        <a class="start">了解更多</a>
+    </div>
+
+    <div class="master-introduction">
+        <h2>站 长 介 绍</h2>
+        <span class="text">少一些功利主义的追求，多一些不为什么的坚持！</span>
+        <span class="line"></span>
+        <div class="intro-box clearfix">
+            <div class="intro-item left">
+                <img src="../static/images/wm-intro1.jpg" th:src="@{/images/wm-intro1.jpg}" alt="">
+                <h4>个人介绍</h4>
+                <span>
+                     李先生，95后，目前在校学习，喜欢编程，喜欢创造，主要技术栈是Java后端开发，一直向着全栈开发，架构方向努力，欢迎大家来和我一起交流学习，共同进步！（1763318259@qq.com）
+                </span>
+            </div>
+            <div class="intro-item left">
+                <img src="../static/images/wm-intro2.jpg" th:src="@{/images/wm-intro2.jpg}" alt="">
+                <h4>我的大学</h4>
+                <span>
+                    目前就读于辽宁工业大学，简称“辽工大”，坐落于辽宁省锦州市，电子信息工程学院计算机科学与技术专业。
+                </span>
+            </div>
+            <div class="intro-item left">
+                <img src="../static/images/wm-intro3.jpg" th:src="@{/images/wm-intro3.jpg}" alt="">
+                <h4>我的爱情观</h4>
+                <span>
+                    淡淡的风，丝丝缕缕的爱恋，穿越心灵我想你能依偎在我身边，眺望无际的云海，漫过着脑海的音乐，只有你才听得懂我呢喃呓语；携手走在傍晚的习习轻风里，有多少思念的香甜萦绕在你我的心底。
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+
+    <!-- 引入 public  js -->
+    <script type="text/javascript" src="../static/js/public.js" th:src="@{/js/public.js}"></script>
+    <!-- 页面滚动效果 -->
+    <script src="../static/js/jquery-3.6.0.min.js" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script src="../static/js/jquery.aniview.js" th:src="@{/js/jquery.aniview.js}"></script>
+    <script>
+        // 滚动 aniview
+        var options = {
+            animateClass: 'animate__animated',
+            animateThreshold: 100,
+            scrollPollInterval: 20
+        };
+        $('.aniview').AniView(options);
+
+        // 获取显示文字的span元素
+        const textEl = document.querySelector("#text");
+        // 获取并解析要展示的文本数组
+        const texts = JSON.parse(textEl.getAttribute("data-text"));
+
+        // 当前显示文本数组中的第几个
+        let index = 0;
+        // 当前显示第几个字
+        let charIndex = 0;
+        // 每个字显示间隔默认是500毫秒
+        let delta = 500;
+
+        // 记录动画执行开始时间
+        let start = null;
+        // 是否为删除动画
+        let isDeleting = false;
+
+        // 动画回调函数
+        function type(time) {
+            window.requestAnimationFrame(type);
+            // 初始化开始时间
+            if (!start) start = time;
+            // 获取时间间隔
+            let progress = time - start;
+            // 每隔一定的时间，打印出一个新的字符
+            if (progress > delta) {
+                // 获取完整的字符
+                let text = texts[index];
+                // 如果是打字效果
+                if (!isDeleting) {
+                    // 给展示文字的span新增一个字符，使用innerHTML来替换，charIndex自增1，然后返回新的字符串子串
+                    textEl.innerHTML = text.slice(0, ++charIndex);
+                    // 每个字符打印出来的速度不一样，模仿人工打字的速度
+                    delta = 500 - Math.random() * 400;
+                } else {
+                    // 如果是删除效果，则把文字一个一个减掉
+                    textEl.innerHTML = text.slice(0, charIndex--);
+                }
+                // 把star更新为当前时间，进行下一个周期
+                start = time;
+
+                // 如果文字已经全部打印完毕
+                if (charIndex === text.length) {
+                    // 下次开始删除文字
+                    isDeleting = true;
+                    // 删除文字的间隔为200毫秒
+                    delta = 200;
+                    // 额外等待1.2秒后再删除
+                    start = time + 1200;
+                }
+
+                // 如果文字删除完毕
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    // 额外增加200毫秒延迟
+                    start = time + 200;
+                    // 把index移动到下一个文本，并且在文本数组元素个数中循环
+                    index = ++index % texts.length;
+                }
+            }
+        }
+
+        window.requestAnimationFrame(type);
+
+        // --- 设置平滑的滚动 --- //
+        $(".start").click(function () {
+            $('html,body').animate({ scrollTop: '800px' }, 1500);
+        });
+    </script>
+</body>
+
+</html>

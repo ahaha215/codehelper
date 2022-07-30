@@ -1,0 +1,116 @@
+/*特殊*/
+.main .menu{
+    height: 895px!important;
+}
+
+.main .menu ul{
+    height: 816px!important;
+}
+
+.blogs-active{
+    color: teal;
+}
+
+.admin-blog-input-container{
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.admin-blog-input-container .box{
+    width: 1200px;
+    margin: auto;
+}
+.admin-blog-input-container .box a{
+    margin-left: 8px;
+}
+
+.admin-blog-input-container .blog{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-blog-input-container .blog-head{
+    margin-top: 20px;
+    margin-bottom: 10px
+}
+
+.admin-blog-input-container .blog-head .blog-flag{
+    width: 80px;
+    height: 40px;
+    font-size: 15px;
+    padding-left: 15px;
+    border: 2px solid #00b5ad;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    font-weight: bolder;
+    color: #00b5ad;
+}
+
+.admin-blog-input-container .blog-head .blog-name{
+    height: 36px;
+    width: 200px;
+    border: 1px solid #00b5ad;
+    text-indent: 1em;
+}
+
+.admin-blog-input-container .blog-head .img-label{
+    margin-left: 20px;
+    color: #00b5ad;
+}
+
+.admin-blog-input-container .blog-head .type-label{
+    color: #00b5ad;
+    margin-left: -40px;
+}
+
+.admin-blog-input-container .blog-head .blog-type{
+    width: 12px;
+    height: 12px;
+}
+
+.admin-blog-input-container .blog-head .blog-dec{
+    display: block;
+    width: 1195px;
+    height: 70px;
+    margin-top: 5px;
+    border: 1px solid #00a8c6;
+}
+
+.admin-blog-input-container .blog #md-context{
+}
+
+.admin-blog-input-container .bottom{
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: -5px;
+}
+
+.admin-blog-input-container .bottom button{
+    width: 70px;
+    height: 35px;
+    margin-left: 12px;
+}
+
+.admin-blog-input-container .bottom button.fb{
+    background-color: #00b5ad;
+    color: whitesmoke;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 4px;
+}
+
+.admin-blog-input-container .bottom button.save{
+    background-color: black;
+    color: whitesmoke;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 4px;
+}
+
+.admin-blog-input-container .bottom button.return{
+    background-color: rgb(228, 224, 224);
+    color: rgb(153, 149, 149);
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 4px;
+}

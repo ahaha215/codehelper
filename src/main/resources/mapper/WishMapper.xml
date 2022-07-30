@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.WishMapper">
+    <insert id="insertWish">
+        insert into
+        t_wish(id,content,audit,create_time,user_id)
+        value (#{wish.id},#{wish.content},#{wish.audit},#{wish.createTime},#{userId});
+    </insert>
+
+    <delete id="deleteWish">
+        delete from
+        t_wish
+        where id = #{wishId}
+    </delete>
+
+    <select id="selectAllWish" resultType="com.lt.codehelper.entity.Wish">
+        select
+        *
+        from
+        t_wish
+    </select>
+
+    <select id="selectWishByContentLike" resultType="com.lt.codehelper.entity.Wish">
+        select
+        *
+        from
+        t_wish
+        where content like #{wishContentLike}
+    </select>
+
+    <select id="selectAllWishByUserId" resultType="com.lt.codehelper.entity.Wish">
+        select
+        *
+        from
+        t_wish
+        where user_id like #{loginUserId}
+    </select>
+
+    <select id="selectAllPendingAuditWish" resultType="com.lt.codehelper.entity.Wish">
+        select
+        *
+        from
+        t_wish
+        where audit = '待审核'
+    </select>
+
+    <select id="selectAllPassAuditWish" resultType="com.lt.codehelper.entity.Wish">
+        select
+        *
+        from
+        t_wish
+        where audit = '已通过'
+    </select>
+
+    <select id="selectWishById" resultType="com.lt.codehelper.entity.Wish">
+        select
+        *
+        from
+        t_wish
+        where id = #{wishId}
+    </select>
+
+    <select id="selectUserIdByWishId" resultType="long">
+        select
+        user_id
+        from
+        t_wish
+        where id = #{wishId}
+    </select>
+
+    <update id="updateWishAudit">
+        update
+        t_wish
+        set audit = #{audit}
+        where id = #{wishId}
+    </update>
+</mapper>

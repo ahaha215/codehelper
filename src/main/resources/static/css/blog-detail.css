@@ -1,0 +1,411 @@
+/* -------------------blog-detail css--------------------- */
+.blog-detail-container{
+    width: 842px;
+    margin: 50px auto 0;
+    border: 1px rgb(204, 204, 204) solid;
+    border-radius: 4px;
+    padding-bottom: 30px;
+}
+
+
+.blog-detail-container .top{
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px rgb(204, 204, 204) solid;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.blog-detail-container .top img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-top: 18px;
+    margin-left: 12px;
+}
+
+.blog-detail-container .top span{
+    margin-left: 8px;
+}
+
+.blog-detail-container .top .name{
+    color: #4183C4;
+}
+
+.blog-detail-container .top .time,
+.blog-detail-container .top .peo{
+    color: #00000066;
+}
+
+
+.blog-detail-container .img img{
+    width: 810px;
+    height: 460px;
+    margin-left: 14px;
+    margin-top: 14px;
+    border-radius: 8px;
+}
+
+.blog-detail-container .article{
+    border-top: 1px rgb(204, 204, 204) solid;
+    margin-top: 15px;
+    padding-top: 20px;
+}
+
+.blog-detail-container .article .explain{
+    height: 60px;
+}
+
+.blog-detail-container .article .explain span{
+    color: #f2711c;
+    font-size: 12px;
+    border: 1px #f2711c solid;
+    border-radius: 6px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+    margin-top: 12px;
+    margin-right: 30px;
+}
+
+.blog-detail-container .article h2{
+    text-align: center;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.blog-detail-container .article .text{
+    padding: 25px;
+    line-height: 25px;
+    font-size: 14px;
+}
+
+.blog-detail-container .article .tag span{
+    color: #00b5ad;
+    font-size: 14px;
+    border: 1px #00b5ad solid;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 12px;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-left: 25px;
+}
+
+.blog-detail-container .article .appreciate{
+    text-align: center;
+    position: relative;
+}
+
+.blog-detail-container .article .appreciate span{
+    color: #f2711c;
+    font-size: 14px;
+    border: 1px #f2711c solid;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 30px;
+    padding: 8px 20px;
+    cursor: pointer;
+}
+
+.blog-detail-container .article .appreciate .money-code{
+    position: absolute;
+    top: 50px;
+    left: 282px;
+    font-size: 10px;
+    font-weight: bolder;
+    border: 1px #f2711c solid;
+    padding: 24px;
+    border-radius: 4px;
+    background-color:whitesmoke;
+    display: none;
+}
+
+.blog-detail-container .article .appreciate .money-code .code-rig{
+    margin-left: 30px;
+}
+
+.blog-detail-container .article .appreciate .money-code h4{
+    color: teal;
+}
+
+.blog-detail-container .article .appreciate .money-code img{
+    width: 100px;
+    height: 100px;
+}
+
+.blog-detail-container .about-author{
+    margin-top: 50px;
+    border: 1px teal solid;
+    border-bottom: 1px rgb(204, 204, 204) solid;
+    padding: 20px 0;
+}
+
+.blog-detail-container .about-author .lef ul{
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.blog-detail-container .about-author .lef ul li{
+    color: teal;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.blog-detail-container .about-author .rig img{
+    width: 110px;
+    height: 110px;
+    margin-right: 25px;
+}
+
+.blog-detail-container .comment{
+    margin-top: 20px;
+}
+
+.blog-detail-container .comment textarea{
+    padding: 20px;
+    width: 776px;
+    height: 100px;
+    margin-left: 12px;
+    border: 1px rgb(204, 204, 204) solid;
+}
+
+.blog-detail-container .comment button{
+    background-color: #00b5ad;
+    color: whitesmoke;
+    font-size: 14px;
+    font-weight: bolder;
+    width: 90px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 4px;
+    margin-right: 12px;
+    margin-top: 12px;
+}
+
+.blog-detail-container .nav-right-bottom .catalog,
+.blog-detail-container .nav-right-bottom .comment-btn{
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: teal;
+    color: whitesmoke;
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+} 
+
+.blog-detail-container .nav-right-bottom .catalog{
+    border-bottom: 1px rgb(204, 204, 204) solid;
+}
+
+.blog-detail-container .nav-right-bottom .img,
+.blog-detail-container .nav-right-bottom .top{
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(204, 204, 204);
+    color: rgb(87, 84, 84);
+}
+
+.blog-detail-container .nav-right-bottom .img{
+    border-bottom: 1px rgb(97, 96, 96) solid;
+}
+
+.blog-detail-container .nav-right-bottom img{
+    width: 30px;
+    height: 30px;
+    margin-top: 12px;
+}
+
+.blog-detail-container .nav-right-bottom .top{
+    text-align: center;
+}
+
+.blog-detail-container .nav-right-bottom {
+    position:  fixed;
+    right: 12px;
+    bottom: 12px;
+}
+
+.blog-detail-container .catalog-content{
+    border: 1px rgb(204, 204, 204) solid;
+    position: fixed;
+    right: 90px;
+    bottom: 112px;
+    display: none;
+    padding: 20px 70px;
+    border-radius: 4px;
+}
+
+
+
+.blog-detail-container .auto-code{
+    padding: 12px;
+    border: 1px rgb(204, 204, 204) solid;
+    border-radius: 4px;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    right: 90px;
+    bottom: 0px;
+    display: none;
+}
+
+.blog-detail-container .auto-code img{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.blog-detail-container .comment-list{
+    margin-top: 50px;
+}
+
+.blog-detail-container .comment-list .comment-item{
+    width: 820px;
+    margin-left: 12px;
+    margin-bottom: 50px;
+}
+
+.blog-detail-container .comment-item .comment-user-head-portrait img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.blog-detail-container .comment-item .comment-content{
+    width: 740px;
+    margin-left: 15px;
+}
+
+.blog-detail-container .comment-item .comment-content .comment-username{
+    font-size: 16px;
+    font-weight: bolder;
+    color: #34495E;
+}
+
+.blog-detail-container .comment-item .comment-content .comment-time{
+    font-size: 12px;
+    margin-left: 12px;
+    color: #a7a7a7;
+}
+
+.blog-detail-container .comment-item .comment-content .comment-text{
+    margin-top: 8px;
+    display: block;
+    font-size: 14px;
+    color: #939393;
+    line-height: 25px;
+}
+
+.blog-detail-container .comment-item .comment-content .del-comment{
+    font-size: 12px;
+}
+
+.blog-detail-container .comment-item .comment-content .del-comment:hover{
+    color: red;
+}
+
+/* -----------右下角导航条---------- */
+.nav-right-bottom .catalog,
+.nav-right-bottom .comment-btn{
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: teal;
+    color: whitesmoke;
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+} 
+
+.nav-right-bottom .catalog{
+    border-bottom: 1px rgb(204, 204, 204) solid;
+}
+
+.nav-right-bottom .img,
+.nav-right-bottom .top{
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(204, 204, 204);
+    color: rgb(87, 84, 84);
+}
+
+.nav-right-bottom .img{
+    border-bottom: 1px rgb(97, 96, 96) solid;
+}
+
+.nav-right-bottom img{
+    width: 30px;
+    height: 30px;
+    margin-top: 12px;
+}
+
+.nav-right-bottom .top{
+    text-align: center;
+}
+
+.nav-right-bottom {
+    position:  fixed;
+    right: 12px;
+    bottom: 12px;
+}
+
+.catalog-content{
+    border: 1px rgb(204, 204, 204) solid;
+    position: fixed;
+    right: 65px;
+    bottom: 112px;
+    display: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 265px;
+    max-width: 265px;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.auto-code{
+    padding: 12px;
+    border: 1px rgb(204, 204, 204) solid;
+    border-radius: 4px;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    right: 90px;
+    bottom: 0px;
+    display: none;
+}
+
+.auto-code img{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.turn-pages{
+    margin-right: 12px;
+}
+
+.turn-pages .pre-btn img{
+    width: 15px;
+    height: 15px;
+    margin-right: 50px;
+}
+
+.turn-pages .nex-btn img{
+    width: 15px;
+    height: 15px;
+}
+
+.turn-pages .pages{
+    margin-right: 50px;
+}

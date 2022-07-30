@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.BlogToTypeMapper">
+
+    <insert id="insertBlogToType">
+        insert into
+        t_blog_to_type(blog_id,type_id)
+        values (#{blogId},#{typeId});
+    </insert>
+
+    <delete id="deleteBlogToType">
+        delete from
+        t_blog_to_type
+        where blog_id = #{blogId}
+    </delete>
+
+    <select id="selectAllBlogToTypeById" resultType="long">
+        select type_id
+        from
+        t_blog_to_type
+        where blog_id = #{blogId}
+    </select>
+
+    <select id="selectBlogSumByTypeId" resultType="java.lang.Integer">
+        select count(*)
+        from t_blog_to_type
+        where type_id = #{typeId}
+    </select>
+
+</mapper>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推荐的资源-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 nav footer样式 -->
+    <link rel="stylesheet" href="../static/css/nav-footer.css" th:href="@{/css/nav-footer.css}">
+    <!-- 引入 about-me 样式 -->
+    <link rel="stylesheet" href="../static/css/about-me.css" th:href="@{/css/about-me.css}">
+    <!-- 引入 animate 样式 -->
+    <link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+</head>
+
+<body>
+
+    <!-- 头部部分 -->
+    <nav class="menu">
+        <div class="container clearfix">
+            <div class="logo left"><a href="/welcome">CodeHelper</a></div>
+            <ul class="left clearfix">
+                <li><a href="/index">首页</a></li>
+                <li><a href="/blog">博客</a></li>
+                <li><a href="/resource">资源</a></li>
+                <li><a href="/wish">世界</a></li>
+                <li><a href="/aboutUserResource" class="active">个人</a></li>
+                <li><a href="/aboutWebMaster">关于站长</a></li>
+            </ul>
+            <div class="login">
+                <a th:if="${loginUser == null}" class="login-a" href="/login">登 录</a>
+                <div class="login-user-msg" th:if="${loginUser != null}">
+                    <div class="msg-main clearfix">
+                        <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${loginUser.headPortrait}}" alt="">
+                        <span class="left" th:text="${loginUser.username}">李先生</span>
+                    </div>
+                    <div class="logout-a">
+                        <a href="/logout.do">退 出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 中间主体部分 -->
+    <div class="about-me-container">
+        <div class="top">
+            <div class="box clearfix">
+                <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${loginUser.headPortrait}}" alt="">
+                <span class="left user-name-text" th:text="${loginUser.username}">Admin</span>
+                <span class="left register-time-text">注册于 : <span th:text="${createTimeStr}">2022-1-12 12:44</span></span>
+            </div>
+        </div>
+        <ul class="menu-box clearfix">
+            <li class="left about-me-active"><a href="/aboutUserResource">我的推荐</a></li>
+            <li class="left"><a href="/aboutUserWish">我的心愿</a></li>
+            <li class="left"><a href="/aboutUserPartner">我的组队</a></li>
+            <li class="left"><a href="/aboutUserInfo">我的信息</a></li>
+        </ul>
+
+        <div class="content">
+            <div class="about-me-list">
+                <div class="about-me-item" th:each="resource : ${allResourceByUserId.list}">
+                    <div class="item-top">
+                        <div class="main-content">
+                            <h2 th:text="${resource.resourceName}">Java Idea</h2>
+                            <span th:text="${resource.description}">这是一个非常非常好用的Java编辑器啊！</span>
+                        </div>
+                    </div>
+                    <div class="item-bottom">
+                        <a th:href="@{/resourceDetail.do(resourceId=${resource.id})}" class="look">查看</a>
+                        <a th:href="@{/deleteUserResource.do(resourceId=${resource.id})}">删除</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="turn-pages clearfix">
+            <a th:href="@{/aboutUserResource.do(pageNum=${allResourceByUserId.nextPage})}" class="right nex-btn" th:class="${allResourceByUserId.hasNextPage}?'right nex-btn':'right nex-btn disabled'">
+                <img src="../static/images/turn-pages-nex.png" th:src="@{/images/turn-pages-nex.png}" alt="">
+            </a>
+            <a th:href="@{/aboutUserResource.do(pageNum=${allResourceByUserId.prePage})}" class="right pre-btn" th:class="${allResourceByUserId.hasPreviousPage}?'right pre-btn':'right pre-btn disabled'">
+                <img src="../static/images/turn-pages-pre.png" th:src="@{/images/turn-pages-pre.png}" alt="">
+            </a>
+            <span class="right pages">共计：<span class="total-sum" th:text="${allResourceByUserId.pages}">10</span> 页，当前第：<span class="current-sum" th:text="${allResourceByUserId.pageNum}">10</span> 页</span>
+        </div>
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+
+    <!-- 引入 public  js -->
+    <script type="text/javascript" src="../static/js/public.js" th:src="@{/js/public.js}"></script>
+    <!-- 页面滚动效果 -->
+    <script src="../static/js/jquery-3.6.0.min.js" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script src="../static/js/jquery.aniview.js" th:src="@{/js/jquery.aniview.js}"></script>
+    <script>
+        // 滚动 aniview
+        var options = {
+            animateClass: 'animate__animated',
+            animateThreshold: 100,
+            scrollPollInterval: 20
+        };
+        $('.aniview').AniView(options);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伙伴-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 nav footer样式 -->
+    <link rel="stylesheet" href="../static/css/nav-footer.css" th:href="@{/css/nav-footer.css}">
+    <!-- 引入 partner 样式 -->
+    <link rel="stylesheet" href="../static/css/partner.css" th:href="@{/css/partner.css}">
+    <!-- 引入 animate 样式 -->
+    <link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+</head>
+<body>
+
+    <!-- 头部部分 -->
+    <nav class="menu">
+        <div class="container clearfix">
+            <div class="logo left"><a href="/welcome">CodeHelper</a></div>
+            <ul class="left clearfix">
+                <li><a href="/index">首页</a></li>
+                <li><a href="/blog">博客</a></li>
+                <li><a href="/resource">资源</a></li>
+                <li><a href="/wish" class="active">世界</a></li>
+                <li><a href="/aboutUserResource">个人</a></li>
+                <li><a href="/aboutWebMaster">关于站长</a></li>
+            </ul>
+            <div class="login">
+                <a th:if="${loginUser == null}" class="login-a" href="/login">登 录</a>
+                <div class="login-user-msg" th:if="${loginUser != null}">
+                    <div class="msg-main clearfix">
+                        <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${loginUser.headPortrait}}" alt="">
+                        <span class="left" th:text="${loginUser.username}">李先生</span>
+                    </div>
+                    <div class="logout-a">
+                        <a href="/logout.do">退 出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--心愿池主体部分-->
+    <div class="partner-find-box">
+        <div class="partner-top">
+            <div class="clearfix">
+                <h2 class="left"><a href="/wish">心 愿 树</a></h2>
+                <h2 class="left findPartner"><a href="/partner">找 伙 伴</a></h2>
+            </div>
+            <span class="des">
+                留下你的创意，快来寻求和你志同道合的人吧！
+            </span>
+            <a href="/findPartner" class="find-partner-btn">我 要 找 伙 伴</a>
+        </div>
+
+        <form action="/searchPartnerPage.do" class="search clearfix">
+            <input type="text" class="left" name="partnerContentLike" placeholder="搜寻小伙伴...">
+            <button class="left">
+                <img src="../static/images/search.png" th:src="@{/images/search.png}" alt="">
+            </button>
+        </form>
+
+        <ul class="partner-list">
+            <li class="partner-item" th:each="partnerMap : ${partners}">
+                <div class="clearfix">
+                    <img src="../static/images/1005-800x450.jpg" th:src="@{${partnerMap.partner.user.headPortrait}}" alt="" class="left">
+                    <span class="left content right" th:text="${partnerMap.partner.content}">
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                        初学Java，希望找个志同道合的伙伴一起督促学习，探讨后端..
+                    </span>
+                </div>
+                <div class="partner-types">
+                    <span th:each="type : ${partnerMap.partner.partnerTypes}">[[${type.typeName}]]</span>
+                </div>
+                <div class="partner-bottom clearfix">
+                    <div class="time left">发布时间：<span th:text="${partnerMap.createTimeStr}">2022/2/3 12:44</span></div>
+                    <div class="touch right">
+                        <a href=""><img src="../static/images/touch.png" th:src="@{/images/touch.png}" alt=""></a>
+                        <div class="touch-box">
+                           [[${partnerMap.partner.user.email}]]
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <div class="turn-pages clearfix">
+            <a th:href="@{/partnerPage.do(pageNum=${pagePartner.nextPage})}" class="right nex-btn" th:class="${pagePartner.hasNextPage}?'right nex-btn':'right nex-btn disabled'">
+                <img src="../static/images/turn-pages-nex.png" th:src="@{/images/turn-pages-nex.png}" alt="">
+            </a>
+            <a th:href="@{/partnerPage.do(pageNum=${pagePartner.prePage})}" class="right pre-btn" th:class="${pagePartner.hasPreviousPage}?'right pre-btn':'right pre-btn disabled'">
+                <img src="../static/images/turn-pages-pre.png" th:src="@{/images/turn-pages-pre.png}" alt="">
+            </a>
+            <span class="right pages">共计：<span class="total-sum" th:text="${pagePartner.pages}">10</span> 页，当前第：<span class="current-sum" th:text="${pagePartner.pageNum}">10</span> 页</span>
+        </div>
+
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+
+    <!-- 引入 public  js -->
+    <script type="text/javascript" src="../static/js/public.js" th:src="@{/js/public.js}"></script>
+    <!-- 页面滚动效果 -->
+    <script src="../static/js/jquery-3.6.0.min.js" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script src="../static/js/jquery.aniview.js" th:src="@{/js/jquery.aniview.js}"></script>
+    <script>
+        // 滚动 aniview
+        var options = {
+            animateClass: 'animate__animated',
+            animateThreshold: 100,
+            scrollPollInterval: 20
+        };
+        $('.aniview').AniView(options);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+.admin-web-site-container{
+    width: 1250px;
+    padding-top: 50px;
+    padding-left: 20px;
+}
+
+.admin-web-site-container .box a{
+    margin-right: 12px;
+}
+
+.box-active{
+    color: #00a8c6;
+}
+
+.box a:hover{
+    color: #00a8c6;
+}
+.web-box{
+    padding-left: 85px;
+}
+
+form{
+    margin-top: 40px;
+}
+
+button,
+.btn{
+    width: 80px;
+    height: 30px;
+    color: whitesmoke;
+    background-color: teal;
+    border-radius: 4px;
+    margin-left: 30px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+}
+
+.main .address{
+    border: 1px solid #c0c0c0;
+    height: 25px;
+    width: 500px;
+    border-radius: 4px;
+    text-indent: 1em;
+}
+
+.main .address:hover,
+.main .address:focus{
+    border-color: teal;
+}
+
+.list{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.item{
+    margin-top: 20px;
+}
+
+.item img{
+    width: 500px;
+    height: 200px;
+}
+
+.content{
+    margin-left: 125px;
+    width: 450px;
+}
+
+.link{
+    display: block;
+    margin-top: 50px;
+}
+
+.bottom{
+    margin-top: 90px;
+}

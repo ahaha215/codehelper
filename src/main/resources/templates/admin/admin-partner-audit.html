@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伙伴审核-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 admin nav footer 样式 -->
+    <link rel="stylesheet" href="../../static/css/admin-nav-footer.css" th:href="@{/css/admin-nav-footer.css}">
+    <!-- 引入 partner 样式 -->
+    <link rel="stylesheet" href="../../static/css/partner.css" th:href="@{/css/partner.css}">
+</head>
+
+<body>
+
+    <!-- 顶部部分 -->
+    <nav class="nav clearfix">
+        <ul class="right clearfix">
+            <li><a href="/logout.do">Log Out</a></li>
+        </ul>
+    </nav>
+
+    <div class="main clearfix">
+        <!-- 左边导航栏部分 -->
+        <div class="menu left">
+            <div class="log">
+                <h1>
+                    <a href="/adminIndex">CodeHelper</a>
+                </h1>
+            </div>
+            <ul>
+                <li><a href="/adminWebSiteBanner">Web Management</a></li>
+                <li><a href="/adminUser">User Management</a></li>
+                <li><a href="/adminType">Type Management</a></li>
+                <li><a href="/adminBlog">Blog Management</a></li>
+                <li><a href="/adminResource">Reso Management</a></li>
+                <li><a href="/adminWish">Wish Management</a></li>
+                <li class="admin-active"><a href="/adminPartner">Part Management</a></li>
+            </ul>
+        </div>
+        <div class="partner-audit">
+            <ul>
+                <li>
+                    <span>寻求用户：</span>
+                    <span class="content" th:text="${partnerInfo.user.username}">Admin</span>
+                </li>
+                <li>
+                    <span>寻求内容：</span>
+                    <span class="content" th:text="${partnerInfo.content}">
+                        求大家给我一份Java的学习资料！
+                    </span>
+                </li>
+                <li>
+                    <span>寻求类型：</span>
+                    <span class="content">
+                        <span th:each="type : ${partnerInfo.partnerTypes}">[[${type.typeName}]]</span>
+                    </span>
+                </li>
+                <li>
+                    <span>寻求时间：</span>
+                    <span class="content" th:text="${formatTimeStr}">2020/2/2 12:12</span>
+                </li>
+            </ul>
+            <a th:href="@{/auditPartner.do(partnerId=${partnerInfo.id},audit='不通过')}" class="right">不通过</a>
+            <a th:href="@{/auditPartner.do(partnerId=${partnerInfo.id},audit='已通过')}" class="right yes">通 过</a>
+        </div>
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+    <script>
+        var msg = document.querySelector(".msg").value;
+        if ("" != msg){
+            // 如果提示信息不为空，则弹出提示信息
+            alert(msg);
+        }
+    </script>
+</body>
+
+</html>

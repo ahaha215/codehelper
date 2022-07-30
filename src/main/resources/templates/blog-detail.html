@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客详情-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 nav footer样式 -->
+    <link rel="stylesheet" href="../static/css/nav-footer.css" th:href="@{/css/nav-footer.css}">
+    <!-- 引入 blog-detail 样式 -->
+    <link rel="stylesheet" href="../static/css/blog-detail.css" th:href="@{/css/blog-detail.css}">
+    <!-- 引入 animate 样式 -->
+    <link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+    <!-- 引入 typo 样式（页面排版） -->
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <!-- 引入 prism 样式（代码高亮） -->
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <!-- 引入 tocbot 样式（生成目录） -->
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+</head>
+
+<body>
+
+    <!-- 头部部分 -->
+    <nav class="menu">
+        <div class="container clearfix">
+            <div class="logo left"><a href="/welcome">CodeHelper</a></div>
+            <ul class="left clearfix">
+                <li><a href="/index">首页</a></li>
+                <li><a href="/blog">博客</a></li>
+                <li><a href="/resource">资源</a></li>
+                <li><a href="/wish">世界</a></li>
+                <li><a href="/aboutUserResource">个人</a></li>
+                <li><a href="/aboutWebMaster">关于站长</a></li>
+            </ul>
+            <div class="login">
+                <a th:if="${loginUser == null}" class="login-a" href="/login">登 录</a>
+                <div class="login-user-msg" th:if="${loginUser != null}">
+                    <div class="msg-main clearfix">
+                        <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${loginUser.headPortrait}}" alt="">
+                        <span class="left" th:text="${loginUser.username}">李先生</span>
+                    </div>
+                    <div class="logout-a">
+                        <a href="/logout.do">退 出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 中间主体部分 -->
+    <div id="waypoint" class="blog-detail-container">
+        <div class="top clearfix">
+            <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${author.headPortrait}}" alt="">
+            <span class="name left" th:text="${author.username}">李停</span>
+            <span class="left time" th:text="${updateTimeStr}">2020-10-01</span>
+            <span class="left peo" th:text="${blog.viewSum}">2342</span>
+        </div>
+
+        <div class="img">
+            <img src="../static/images/1005-800x450.jpg" th:src="@{${blog.firstPicture}}" alt="">
+        </div>
+
+        <div class="article typo typo-selection">
+            <div class="explain">
+                <span class="right" th:text="${blog.flag}">原创</span>
+            </div>
+            <h1 th:text="${blog.title}">关于刻意练习的清单</h1>
+            <div class="text js-toc-content" th:utext="${blog.content}">
+                <h2 id="1">发展历史介绍发展历史介绍发展历</h2>
+                <h3 id="12">介绍一</h3>
+                <h4>方面一</h4>
+                <h4>方面二</h4>
+                <h3 id="13">介绍二</h3>
+                <h3 id="14">介绍三</h3>
+                <pre><code class="language-css">margin-top:0 auto</code></pre>
+                <p>宋代著名学者朱熹对此章评价极高，说它是「入道之门，积德之基」。本章这三句话是人们非常熟悉的。历来的解释都是：学了以后，又时常温习和练习，不也高兴吗等等。三句话，一句一个意思，前后句子也没有什么连贯性。但也有人认为这样解释不符合原义，指出这里的「学」不是指学习，而是指学说或主张；「时」不能解为时常，而是时代或社会的意思，「习」不是温习，而是使用，引申为采用。而且，这三句话不是孤立的，而是前后相互连贯的。这三句的意思是：自己的学说，要是被社会采用了，那就太高兴了；退一步说，要是没有被社会所采用，可是很多朋友赞同我的学说，纷纷到我这里来讨论问题，我也感到快乐；再退一步说，即使社会不采用，人们也不理解我，我也不怨恨，这样做，不也就是君子吗？（见《齐鲁学刊》1986年第6期文）这种解释可以自圆其说，而且也有一定的道理，供读者在理解本章内容时参考。
+                </p>
+                <h2 id="2">一级标题2</h2>
+                <h2 id="21">4</h2>
+                <h2 id="22">5</h2>
+                <h2 id="23">6</h2>
+                <p>
+                    此外，在对「人不知，而不愠」一句的解释中，也有人认为，「人不知」的后面没有宾语，人家不知道什么呢？当时因为孔子有说话的特定环境，他不需要说出知道什么，别人就可以理解了，却给后人留下一个谜。有人说，这一句是接上一句说的，从远方来的朋友向我求教，我告诉他，他还不懂，我却不怨恨。这样，「人不知」就是「人家不知道我所讲述的」了。这样的解释似乎有些牵强。
+                </p>
+                <h1 id="3">一级标题3</h1>
+            </div>
+            <div class="tag">
+                <span th:each="blogType : ${blog.blogTypes}">
+                    [[${blogType}]]
+                </span>
+            </div>
+            <div class="appreciate">
+                <span id="appreciate-btn">赞赏</span>
+                <div class="money-code clearfix" id="money-code">
+                    <div class="code-lef left">
+                        <img src="../static/images/money_zfb.jpg" th:src="@{/images/money_zfb.jpg}" alt="">
+                        <h4>支付宝</h4>
+                    </div>
+                    <div class="code-rig left">
+                        <img src="../static/images/money_vx.jpg" th:src="@{/images/money_vx.jpg}" alt="">
+                        <h4>微信</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-author clearfix">
+            <div class="lef left">
+                <ul>
+                    <li>作者：<span th:text="${author.username}">李停</span></li>
+                    <li>发表时间：<span th:text="${createTimeStr}">2020-10-1 10:10</span></li>
+                    <li>版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</li>
+                </ul>
+            </div>
+            <div class="rig right">
+                <img src="../static/images/wexingAddCode.jpg" th:src="@{/images/wexingAddCode.jpg}" alt="">
+            </div>
+        </div>
+
+        <form action="/addComment.do" class="comment clearfix" id="comment">
+            <input type="hidden" name="blogId" th:value="${blog.id}">
+            <input type="hidden" name="userId" th:value="${author.id}">
+            <textarea name="content" cols="30" rows="10" placeholder="请输入评论信息..."></textarea>
+            <button class="right">发布</button>
+        </form>
+
+        <div class="comment-list">
+            <div class="comment-item clearfix" th:each="comment : ${comments}">
+                <div class="comment-user-head-portrait left">
+                    <img src="../static/images/1005-800x450.jpg" th:src="@{${comment.commentUser.headPortrait}}" alt="">
+                </div>
+                <div class="comment-content left">
+                    <span class="comment-username" th:text="${comment.commentUser.username}">李先生</span>
+                    <span class="comment-time" th:text="${comment.commentTimeStr}">2022-03-10 09:50:12</span>
+                    <span class="comment-text" th:text="${comment.blogComment.content}">这个是真的不错啊！！！</span>
+                    <a th:href="@{/delBlogComment.do(commentId=${comment.blogComment.id},blogId=${blog.id})}" class="del-comment" th:if="${loginUser.id==comment.commentUser.id || loginUser.userType=='管理员'}">删除</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="turn-pages clearfix">
+            <a th:href="@{/blogDetail.do(pageNum=${pageBlogComment.nextPage})}" class="right nex-btn" th:class="${pageBlogComment.hasNextPage}?'right nex-btn':'right nex-btn disabled'">
+                <img src="../static/images/turn-pages-nex.png" th:src="@{/images/turn-pages-nex.png}" alt="">
+            </a>
+            <a th:href="@{/blogDetail.do(pageNum=${pageBlogComment.prePage})}" class="right pre-btn" th:class="${pageBlogComment.hasPreviousPage}?'right pre-btn':'right pre-btn disabled'">
+                <img src="../static/images/turn-pages-pre.png" th:src="@{/images/turn-pages-pre.png}" alt="">
+            </a>
+            <span class="right pages">共计：<span class="total-sum" th:text="${pageBlogComment.pages}">10</span> 页，当前第：<span class="current-sum" th:text="${pageBlogComment.pageNum}">10</span> 页</span>
+        </div>
+    </div>
+
+    <!-- 尾部部分 -->
+    <footer class="footer">
+        <div class="text">
+            Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+        </div>
+    </footer>
+
+    <!-- 右下角的导航条 -->
+    <div id="toolbar" class="nav-right-bottom">
+        <button class="catalog" id="catalog-btn">目录</button>
+        <a href="#comment" class="comment-btn">留言</a>
+        <button class="img" id="qrcode-btn"><img src="../static/images/weixing.png" th:src="@{/images/weixing.png}" alt=""></button>
+        <button class="top" id="top-btn">Top</button>
+    </div>
+    <div class="catalog-content">
+        <ul class="js-toc">
+        </ul>
+    </div>
+    <div class="auto-code" id="qrcode">
+    </div>
+
+    <!-- 引入 public  js -->
+    <script type="text/javascript" src="../static/js/public.js" th:src="@{/js/public.js}"></script>
+    <!-- 页面滚动效果 -->
+    <script src="../static/js/jquery-3.6.0.min.js" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script src="../static/js/jquery.aniview.js" th:src="@{/js/jquery.aniview.js}"></script>
+    <!-- 引入 prism js -->
+    <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+    <!-- 引入 tocbot js-->
+    <script src="../static/lib/tocbot/tocbot.js" th:src="@{/lib/tocbot/tocbot.js}"></script>
+    <!-- 引入 qrcode js -->
+    <script src="../static/lib/qrcode/qrcode.js" th:src="@{/lib/qrcode/qrcode.js}"></script>
+    <!-- 引入 waypoints js （滚动侦测） -->
+    <script src="../static/lib/waypoints/jquery.waypoints.js" th:src="@{/lib/waypoints/jquery.waypoints.js}"></script>
+    <script>
+        // 滚动 aniview
+        var options = {
+            animateClass: 'animate__animated',
+            animateThreshold: 100,
+            scrollPollInterval: 20
+        };
+        $('.aniview').AniView(options);
+
+
+        // --实现对赞赏按钮的点击功能-- // 
+        var num = 1;
+        $("#appreciate-btn").click(function () {
+            num++;
+            if (num % 2 == 0) {
+                $("#money-code").css("display", "block");
+            } else {
+                $("#money-code").css("display", "none");
+            }
+        });
+
+        // --- 对自动生成目录进行初始化 --- // 
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.js-toc',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.js-toc-content',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3',
+            // For headings inside relative or absolute positioned containers within content.
+            hasInnerContainers: true,
+        });
+
+        // --- 对目录增加点击功能 --- // 
+        var numCatalog = 1;
+        $("#catalog-btn").click(function () {
+            numCatalog++;
+            if (numCatalog % 2 == 0) {
+                $(".catalog-content").css("display", "block");
+            } else {
+                $(".catalog-content").css("display", "none");
+            }
+        });
+
+        // --- 对二维码增加点击功能 --- // 
+        var numQrcode = 1;
+        $("#qrcode-btn").click(function () {
+            numQrcode++;
+            if (numQrcode % 2 == 0) {
+                $(".auto-code").css("display", "block");
+            } else {
+                $(".auto-code").css("display", "none");
+            }
+        });
+
+        // --- 自动生成二维码 --- //
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "http://jindo.dev.naver.com/collie",
+            width: 128,
+            height: 128,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        // --- 设置平滑的滚动 --- //
+        $("#top-btn").click(function () {
+            $('html,body').animate({ scrollTop: '0px' }, 800);
+        });
+
+        // 滚动侦测
+        var waypoint = new Waypoint({
+            element: document.getElementById('waypoint'),
+            handler: function (direction) {
+                if (direction == 'down') {
+                    $('#toolbar').show(100);
+                } else {
+                    $('#toolbar').hide(500);
+                    $(".catalog-content").css("display", "none");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

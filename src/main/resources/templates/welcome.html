@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi-CodeHelper</title>
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" href="../static/images/shortcut-icon.png" th:href="@{/images/shortcut-icon.png}"/>
+    <!-- 引入 reset 样式 -->
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <!-- 引入 public 样式 -->
+    <link rel="stylesheet" href="../static/css/public.css" th:href="@{/css/public.css}">
+    <!-- 引入 welcome 样式 -->
+    <link rel="stylesheet" href="../static/css/welcome.css" th:href="@{/css/welcome.css}">
+</head>
+<body>
+
+    <!-- 头部部分 -->
+    <nav class="menu">
+        <div class="container">
+            <div class="logo left"><a href="/welcome">CodeHelper</a></div>
+            <ul class="left clearfix">
+                <li><a href="/index">首页</a></li>
+                <li><a href="/blog">博客</a></li>
+                <li><a href="/resource">资源</a></li>
+                <li><a href="/wish">世界</a></li>
+                <li><a href="/aboutUserResource">个人</a></li>
+                <li><a href="/aboutWebMaster">关于站长</a></li>
+            </ul>
+            <div class="login">
+                <a th:if="${loginUser == null}" class="login-a" href="/login">登 录</a>
+                <div class="login-user-msg" th:if="${loginUser != null}">
+                    <div class="msg-main clearfix">
+                        <img class="left" src="../static/images/1005-800x450.jpg" th:src="@{${loginUser.headPortrait}}" alt="">
+                        <span class="left" th:text="${loginUser.username}">李先生</span>
+                    </div>
+                    <div class="logout-a">
+                        <a href="/logout.do">退 出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 中间主题部分 -->
+    <div class="welcome-main">
+        <div class="welcome-top">
+            <h2>CodeHelper</h2>
+            <div class="about-codeHelper">CodeHelp 诞生于2022年4月，提供了大量的技术文章，编程相关资源...</div>
+            <div class="saying-one">少一些功利主义的追求，多一些不为什么的坚持 !</div>
+            <div class="saying-two">Keep hunger，keep foolish !</div>
+        </div>
+    </div>
+
+    <div class="welcome-link relative">
+        <ul class="clearfix">
+            <li class="qq-btn"><a><img src="../static/images/qq.png" th:src="@{/images/qq.png}" alt="QQ"/></a></li>
+            <li class="weixing-btn"><a><img src="../static/images/weixing.png" th:src="@{/images/weixing.png}" alt="weixing"/></a></li>
+            <li class="github-btn"><a><img src="../static/images/github.png" th:src="@{/images/github.png}" alt="github"/></a></li>
+        </ul>
+
+        <div class="qq-code">
+            <img src="../static/images/qqAddCode.jpg" th:src="@{/images/qqAddCode.jpg}" alt="qq 添加二维码">
+        </div>
+        <div class="weixing-code">
+            <img src="../static/images/wexingAddCode.jpg" th:src="@{/images/wexingAddCode.jpg}" alt="微信 添加二维码">
+        </div>
+        <div class="github-code">
+            <span>ahaha215</span>  
+        </div>
+    </div>
+
+    <div class="welcome-footer">
+        Copyright © 2022 CodeHelper<a class="aq" href="https://beian.miit.gov.cn">辽ICP备 - 2022004079号</a>
+    </div>
+
+    <!-- 引入 welcome 页面 js 文件 -->
+    <script type="text/javascript" src="../static/js/welcome.js" th:src="@{/js/welcome.js}"></script>
+</body>
+
+</html>

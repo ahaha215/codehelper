@@ -1,0 +1,304 @@
+/* --------------主题得颜色渐变------------ */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+      135deg,
+      hsl(10deg, 80%, 70%),
+      hsl(220deg, 80%, 70%),
+      hsl(250deg, 80%, 70%),
+      hsl(320deg, 80%, 70%)
+    );
+    background-size: 200% 200%;
+    animation: gradient-move 15s ease alternate infinite;
+  }
+
+  @keyframes gradient-move {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+
+
+/* --------------导航栏--------------- */
+.menu{
+    height: 70px;
+}
+
+.menu .container{
+    height: 100%;
+    width: 1137px;
+    margin: 0 auto;
+}
+
+.menu .container .logo{
+    color: #fff;
+    font-size: 30px;
+    line-height: 70px;
+}
+
+.menu .container ul{
+    margin-left: 40px;
+}
+
+.menu .container ul li{
+    color: #fff;
+    float: left;
+    margin-left: 30px;
+    line-height: 70px;
+}
+
+/*!*.menu .container .login{*!*/
+/*!*    color: #fff;*!*/
+/*!*    float: right;*!*/
+/*!*    text-align: center;*!*/
+/*!*    margin-top: 14px;*!*/
+/*!*    line-height: 40px;*!*/
+/*!*}*!*/
+
+/*!*.menu .container .login a{*!*/
+/*!*    display: inline-block;*!*/
+/*!*    height: 40px;*!*/
+/*!*    width: 80px;*!*/
+/*!*}*!*/
+
+/*!*.menu .container .login a:hover{*!*/
+/*!*    border-radius: 4px;*!*/
+/*!*    background: #01c4c4;*!*/
+/*!*    color: #fff;*!*/
+/*}*/
+
+/*---------------------*/
+.login{
+    color: #fff;
+    float: right;
+    text-align: center;
+    margin-top: 14px;
+    line-height: 40px;
+}
+
+.login .login-a{
+    display: inline-block;
+    height: 40px;
+    width: 80px;
+    line-height: 40px;
+    background: #1abc9c;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.login .login-a:hover{
+    border-radius: 4px;
+    background: #01c4c4;
+    color: #fff;
+}
+
+.login .login-user-msg .msg-main{
+    margin-top: 2px;
+}
+
+.login .login-user-msg .msg-main img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.login .login-user-msg .msg-main span{
+    margin-left: 12px;
+    color: whitesmoke;
+    cursor: pointer;
+    display: inline-block;
+    min-width: 48px;
+}
+
+.login .login-user-msg:hover span{
+    font-weight: bolder;
+}
+
+.login .login-user-msg .logout-a{
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    margin-top: 8px;
+    background-color: #d4d4d4;
+    font-weight: bolder;
+    color: black;
+    display: none;
+    font-size: 15px;
+}
+
+.login .login-user-msg:hover .logout-a{
+    display: block;
+}
+
+
+.menu .container ul li a{
+    display: inline-block;
+    height: 35.6px;
+    line-height: 35.6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.menu .container ul li a:hover{
+    border-radius: 4px;
+    background: rgba(255,255,255,.15);
+    color: #fff;
+}
+
+/* --------------中间主题部分-------------- */
+.welcome-main{
+    width: 700px;
+    margin: auto;
+    margin-top: 120px; 
+}
+
+.welcome-main .welcome-top h2{
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.welcome-main .welcome-top div{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-top: 60px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.welcome-main .welcome-top .saying-one{
+    margin-top: 40px;
+}
+
+.welcome-main .welcome-top .saying-two{
+    margin-top: 20px;
+    height: 50px;
+}
+
+/* ---------------链接----------------- */
+.welcome-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    position: relative;
+    z-index: 25;
+    margin-top: 110px;
+}
+
+.welcome-link ul li{
+    float: left;
+    margin-left: 20px;
+}
+
+.welcome-link ul li a {
+    position: relative;
+    display: block;
+    color: white;
+    width: 45px;
+    height: 45px;
+    font-size: 36px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 50%;
+    background: #2c3a47;
+    transition: 0.6s;
+}
+
+.welcome-link img {
+    width: 30px;
+    height: 30px;
+}
+    
+.welcome-link ul li a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: #25ccf7;
+    transition: 0.6s;
+    transform: scale(0.8);
+    z-index: -1;
+  }
+  
+.welcome-link ul li a:hover::before {
+    box-shadow: 0 0 14px 10px #25ccf7;
+    transform: scale(1.05);
+}
+  
+.welcome-link .qq-code{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -110px;
+    left: 615px;
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    display: none;
+}
+
+.welcome-link .weixing-code{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -110px;
+    left: 728px;
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    display: none;
+}
+
+.welcome-link .github-code{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -110px;
+    left: 840px;
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    display: none;
+}
+
+.welcome-link .github-code span{
+    font-size: 18px;
+    margin-top: 40px;
+    margin-left: 4px;
+    font-weight: bolder;
+    font-style: italic;
+    display: inline-block;
+}
+
+.welcome-link .qq-code img,
+.welcome-link .weixing-code img{
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+
+/* ------------------底部---------------- */
+.welcome-footer{
+    color: #FFFFFFB3;
+    text-align: center;
+    margin-top: 70px;
+}

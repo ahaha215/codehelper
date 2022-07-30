@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.WishHelperMapper">
+    <insert id="insertWishHelper">
+        insert into
+        t_wish_helper(id,name,content,create_time,wish_id,user_id)
+        values (#{wishHelper.id},#{wishHelper.name},#{wishHelper.content},#{wishHelper.createTime},#{wishId},#{userId})
+    </insert>
+
+    <delete id="deleteWishHelper">
+        delete from
+        t_wish_helper
+        where id = #{wishHelperId}
+    </delete>
+
+    <select id="selectAllWishHelper" resultType="com.lt.codehelper.entity.WishHelper">
+        select
+        *
+        from t_wish_helper
+        where wish_id = #{wishId}
+    </select>
+
+    <select id="selectUserIdByWishHelperId" resultType="long">
+        select
+        user_id
+        from t_wish_helper
+        where id = #{wishHelperId}
+    </select>
+</mapper>

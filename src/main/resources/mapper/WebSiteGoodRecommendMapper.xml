@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.codehelper.mapper.WebSiteGoodRecommendMapper">
+    <insert id="insertWebSiteGoodRecommend">
+        insert into
+        t_web_site_good_recommend(id,link_address,picture_address,user_id)
+        value (#{goodRecommend.id},#{goodRecommend.linkAddress},#{goodRecommend.pictureAddress},#{userId});
+    </insert>
+
+    <delete id="deleteWebSiteGoodRecommend">
+        delete from
+        t_web_site_good_recommend
+        where id = #{webSiteGoodRecommendId}
+    </delete>
+
+    <select id="selectAllWebSiteGoodRecommend" resultType="com.lt.codehelper.entity.WebSiteGoodRecommend">
+        select
+        *
+        from
+        t_web_site_good_recommend
+    </select>
+
+    <select id="selectWebSiteGoodRecommend" resultType="com.lt.codehelper.entity.WebSiteGoodRecommend">
+        select
+        *
+        from
+        t_web_site_good_recommend
+        where id = #{webSiteGoodRecommendId}
+    </select>
+
+</mapper>
